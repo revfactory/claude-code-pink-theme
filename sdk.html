@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDK - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item active">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">통합</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="ide-integration.html" class="sidebar-link">IDE 통합</a></li>
+                        <li><a href="github-actions.html" class="sidebar-link">GitHub Actions</a></li>
+                        <li><a href="sdk.html" class="sidebar-link active">SDK</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">Claude Code SDK</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code SDK를 사용하면 프로그래밍 방식으로 Claude Code의 기능을 애플리케이션에 통합할 수 있습니다. JavaScript/TypeScript, Python, Go 등 다양한 언어를 지원합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>설치</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>JavaScript/TypeScript</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># npm</span>
+<span class="code-command">npm install @anthropic-ai/claude-code-sdk</span>
+
+<span class="code-comment"># yarn</span>
+<span class="code-command">yarn add @anthropic-ai/claude-code-sdk</span>
+
+<span class="code-comment"># pnpm</span>
+<span class="code-command">pnpm add @anthropic-ai/claude-code-sdk</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Python</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># pip</span>
+<span class="code-command">pip install claude-code-sdk</span>
+
+<span class="code-comment"># poetry</span>
+<span class="code-command">poetry add claude-code-sdk</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Go</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-command">go get github.com/anthropic-ai/claude-code-sdk-go</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>JavaScript/TypeScript 사용법</h2>
+                        
+                        <div class="example-box">
+                            <h3>기본 사용 예제</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">import</span> { ClaudeCode } <span class="code-keyword">from</span> <span class="code-string">'@anthropic-ai/claude-code-sdk'</span>;
+
+<span class="code-comment">// Claude Code 인스턴스 생성</span>
+<span class="code-keyword">const</span> claude = <span class="code-keyword">new</span> ClaudeCode({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+  workingDirectory: <span class="code-string">'/path/to/project'</span>
+});
+
+<span class="code-comment">// 코드 분석 요청</span>
+<span class="code-keyword">const</span> result = <span class="code-keyword">await</span> claude.execute({
+  prompt: <span class="code-string">'이 프로젝트의 인증 시스템을 분석해줘'</span>,
+  allowedTools: [<span class="code-string">'read'</span>, <span class="code-string">'grep'</span>]
+});
+
+console.log(result.response);</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>스트리밍 응답</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment">// 스트리밍 모드로 실행</span>
+<span class="code-keyword">const</span> stream = <span class="code-keyword">await</span> claude.stream({
+  prompt: <span class="code-string">'테스트를 실행하고 실패를 수정해줘'</span>,
+  allowedTools: [<span class="code-string">'read'</span>, <span class="code-string">'write'</span>, <span class="code-string">'bash'</span>]
+});
+
+<span class="code-comment">// 스트림 이벤트 처리</span>
+stream.on(<span class="code-string">'message'</span>, (message) => {
+  console.log(<span class="code-string">'Claude:'</span>, message);
+});
+
+stream.on(<span class="code-string">'tool_use'</span>, (tool) => {
+  console.log(<span class="code-string">'도구 사용:'</span>, tool.name, tool.parameters);
+});
+
+stream.on(<span class="code-string">'complete'</span>, () => {
+  console.log(<span class="code-string">'작업 완료'</span>);
+});</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>도구 제어</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment">// 세밀한 도구 제어</span>
+<span class="code-keyword">const</span> result = <span class="code-keyword">await</span> claude.execute({
+  prompt: <span class="code-string">'보안 취약점을 찾아줘'</span>,
+  tools: {
+    allowed: [
+      { name: <span class="code-string">'read'</span>, patterns: [<span class="code-string">'*.js'</span>, <span class="code-string">'*.ts'</span>] },
+      { name: <span class="code-string">'grep'</span> },
+      { name: <span class="code-string">'bash'</span>, commands: [<span class="code-string">'npm audit'</span>] }
+    ],
+    disallowed: [<span class="code-string">'write'</span>]
+  },
+  timeout: 30000 <span class="code-comment">// 30초 타임아웃</span>
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Python 사용법</h2>
+                        
+                        <div class="example-box">
+                            <h3>기본 사용 예제</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">from</span> claude_code_sdk <span class="code-keyword">import</span> ClaudeCode
+
+<span class="code-comment"># Claude Code 인스턴스 생성</span>
+claude = ClaudeCode(
+    api_key=<span class="code-string">"your_api_key"</span>,
+    working_directory=<span class="code-string">"/path/to/project"</span>
+)
+
+<span class="code-comment"># 코드 리뷰 요청</span>
+result = claude.execute(
+    prompt=<span class="code-string">"이 Python 코드를 리뷰하고 개선사항을 제안해줘"</span>,
+    allowed_tools=[<span class="code-string">"read"</span>, <span class="code-string">"grep"</span>]
+)
+
+<span class="code-keyword">print</span>(result.response)</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>비동기 사용</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">import</span> asyncio
+<span class="code-keyword">from</span> claude_code_sdk <span class="code-keyword">import</span> AsyncClaudeCode
+
+<span class="code-keyword">async</span> <span class="code-keyword">def</span> <span class="code-function">main</span>():
+    <span class="code-comment"># 비동기 클라이언트 생성</span>
+    claude = AsyncClaudeCode(api_key=<span class="code-string">"your_api_key"</span>)
+    
+    <span class="code-comment"># 여러 작업 병렬 실행</span>
+    tasks = [
+        claude.execute(prompt=<span class="code-string">"테스트 실행"</span>),
+        claude.execute(prompt=<span class="code-string">"린팅 실행"</span>),
+        claude.execute(prompt=<span class="code-string">"보안 스캔"</span>)
+    ]
+    
+    results = <span class="code-keyword">await</span> asyncio.gather(*tasks)
+    <span class="code-keyword">for</span> result <span class="code-keyword">in</span> results:
+        <span class="code-keyword">print</span>(result.response)
+
+asyncio.run(main())</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>컨텍스트 관리자</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment"># 컨텍스트 관리자로 세션 관리</span>
+<span class="code-keyword">with</span> ClaudeCode(api_key=<span class="code-string">"your_api_key"</span>) <span class="code-keyword">as</span> claude:
+    <span class="code-comment"># 대화 세션 시작</span>
+    session = claude.create_session()
+    
+    <span class="code-comment"># 연속된 대화</span>
+    response1 = session.send(<span class="code-string">"프로젝트 구조를 분석해줘"</span>)
+    response2 = session.send(<span class="code-string">"주요 모듈들의 의존성을 설명해줘"</span>)
+    response3 = session.send(<span class="code-string">"개선할 점을 제안해줘"</span>)</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>고급 기능</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>콜백 핸들러</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment">// 도구 사용 전 확인</span>
+claude.setToolHandler(<span class="code-string">'write'</span>, <span class="code-keyword">async</span> (tool, params) => {
+  <span class="code-keyword">const</span> confirmed = <span class="code-keyword">await</span> askUser(<span class="code-string">`파일을 수정하시겠습니까? ${params.file}`</span>);
+  <span class="code-keyword">return</span> confirmed ? <span class="code-string">'proceed'</span> : <span class="code-string">'skip'</span>;
+});
+
+<span class="code-comment">// 진행 상황 모니터링</span>
+claude.on(<span class="code-string">'progress'</span>, (progress) => {
+  console.log(<span class="code-string">`진행률: ${progress.percent}%`</span>);
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>커스텀 도구 정의</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment">// 커스텀 도구 추가</span>
+claude.registerTool({
+  name: <span class="code-string">'database_query'</span>,
+  description: <span class="code-string">'데이터베이스 쿼리 실행'</span>,
+  parameters: {
+    query: { type: <span class="code-string">'string'</span>, required: <span class="code-boolean">true</span> }
+  },
+  handler: <span class="code-keyword">async</span> (params) => {
+    <span class="code-comment">// 실제 데이터베이스 쿼리 로직</span>
+    <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> db.query(params.query);
+    <span class="code-keyword">return</span> result;
+  }
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>메모리 관리</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment">// 컨텍스트 크기 제한</span>
+<span class="code-keyword">const</span> claude = <span class="code-keyword">new</span> ClaudeCode({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+  contextWindow: {
+    maxTokens: 100000,
+    strategy: <span class="code-string">'sliding'</span>, <span class="code-comment">// 또는 'truncate'</span>
+    preserveSystemMessages: <span class="code-boolean">true</span>
+  }
+});
+
+<span class="code-comment">// 대화 히스토리 관리</span>
+claude.clearHistory();
+claude.resetContext();</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>에러 처리</h2>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">try</span> {
+  <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> claude.execute({
+    prompt: <span class="code-string">'코드 분석'</span>,
+    timeout: 10000
+  });
+} <span class="code-keyword">catch</span> (error) {
+  <span class="code-keyword">if</span> (error.code === <span class="code-string">'TIMEOUT'</span>) {
+    console.error(<span class="code-string">'작업 시간 초과'</span>);
+  } <span class="code-keyword">else if</span> (error.code === <span class="code-string">'RATE_LIMIT'</span>) {
+    console.error(<span class="code-string">'API 요청 한도 초과'</span>);
+    <span class="code-keyword">await</span> sleep(error.retryAfter);
+  } <span class="code-keyword">else if</span> (error.code === <span class="code-string">'INVALID_API_KEY'</span>) {
+    console.error(<span class="code-string">'잘못된 API 키'</span>);
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>실전 예제</h2>
+                        
+                        <div class="example-box">
+                            <h3>자동화된 코드 리뷰 봇</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">class</span> <span class="code-class">CodeReviewBot</span> {
+  <span class="code-keyword">constructor</span>(apiKey) {
+    <span class="code-keyword">this</span>.claude = <span class="code-keyword">new</span> ClaudeCode({ apiKey });
+  }
+
+  <span class="code-keyword">async</span> reviewPullRequest(prData) {
+    <span class="code-keyword">const</span> { files, diff } = prData;
+    
+    <span class="code-comment">// 변경된 파일 분석</span>
+    <span class="code-keyword">const</span> review = <span class="code-keyword">await</span> <span class="code-keyword">this</span>.claude.execute({
+      prompt: <span class="code-string">`다음 PR을 리뷰해주세요:
+        변경된 파일: ${files.join(', ')}
+        주요 변경사항을 분석하고 개선사항을 제안해주세요.`</span>,
+      allowedTools: [<span class="code-string">'read'</span>, <span class="code-string">'grep'</span>],
+      context: { diff }
+    });
+
+    <span class="code-comment">// 리뷰 결과 포맷팅</span>
+    <span class="code-keyword">return</span> {
+      summary: review.summary,
+      suggestions: review.suggestions,
+      approved: review.riskLevel === <span class="code-string">'low'</span>
+    };
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>테스트 자동 생성기</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">async</span> <span class="code-keyword">function</span> <span class="code-function">generateTests</span>(filePath) {
+  <span class="code-keyword">const</span> claude = <span class="code-keyword">new</span> ClaudeCode();
+  
+  <span class="code-keyword">const</span> result = <span class="code-keyword">await</span> claude.execute({
+    prompt: <span class="code-string">`${filePath} 파일의 모든 함수에 대한 단위 테스트를 생성해줘.
+             Jest를 사용하고 엣지 케이스도 포함해줘.`</span>,
+    allowedTools: [<span class="code-string">'read'</span>, <span class="code-string">'write'</span>],
+    outputFormat: <span class="code-string">'test-file'</span>
+  });
+
+  <span class="code-comment">// 생성된 테스트 파일 경로 반환</span>
+  <span class="code-keyword">return</span> result.createdFiles;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>SDK 설정 옵션</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>⚙️ 주요 설정 옵션</h3>
+                            <ul>
+                                <li><strong>apiKey</strong>: Anthropic API 키</li>
+                                <li><strong>workingDirectory</strong>: 작업 디렉토리 경로</li>
+                                <li><strong>model</strong>: 사용할 Claude 모델 (기본값: claude-3-opus)</li>
+                                <li><strong>maxRetries</strong>: 최대 재시도 횟수</li>
+                                <li><strong>timeout</strong>: 요청 타임아웃 (밀리초)</li>
+                                <li><strong>proxy</strong>: 프록시 설정</li>
+                                <li><strong>debug</strong>: 디버그 모드 활성화</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="memory-management.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">메모리 관리 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

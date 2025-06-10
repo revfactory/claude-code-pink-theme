@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일반 작업 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item active">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">사용 가이드</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="cli-usage.html" class="sidebar-link">CLI 사용법</a></li>
+                        <li><a href="common-tasks.html" class="sidebar-link active">일반 작업</a></li>
+                        <li><a href="advanced-features.html" class="sidebar-link">고급 기능</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">일반 작업</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code는 개발자의 일상적인 작업을 자동화하고 지원합니다. 파일을 수동으로 추가할 필요 없이 Claude가 필요에 따라 코드베이스를 탐색합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>1. 익숙하지 않은 코드 이해하기</h2>
+                        <p>새로운 프로젝트나 복잡한 코드베이스를 빠르게 파악할 수 있습니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-output">> 결제 처리 시스템이 무엇을 하는지 설명해줘</span>
+<span class="code-output">> 사용자 권한이 확인되는 곳을 찾아줘</span>
+<span class="code-output">> 캐싱 레이어가 어떻게 작동하는지 설명해줘</span>
+<span class="code-output">> 이 프로젝트의 전체 아키텍처를 설명해줘</span></code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 유용한 팁</h3>
+                            <ul>
+                                <li>특정 모듈이나 기능에 대해 구체적으로 질문하세요</li>
+                                <li>데이터 흐름이나 의존성 관계를 파악하려면 명시적으로 요청하세요</li>
+                                <li>시각적 다이어그램이 필요하면 Claude에게 생성을 요청할 수 있습니다</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>2. Git 작업 자동화</h2>
+                        <p>Claude Code는 Git 워크플로우를 자동화하여 생산성을 높입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>커밋 생성</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 내 변경사항을 커밋해줘</span>
+<span class="code-comment"># Claude가 변경사항을 분석하고 의미 있는 커밋 메시지를 작성합니다</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Pull Request 생성</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> PR을 만들어줘</span>
+<span class="code-comment"># Claude가 브랜치의 모든 변경사항을 분석하고 PR을 생성합니다</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>커밋 검색</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 12월에 마크다운 테스트를 추가한 커밋이 무엇인지 찾아줘</span>
+<span class="code-output">> 최근 버그 수정 커밋들을 보여줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>병합 충돌 해결</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> main 브랜치에 리베이스하고 병합 충돌을 해결해줘</span>
+<span class="code-comment"># Claude가 충돌을 분석하고 적절한 해결책을 제시합니다</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>3. 지능적인 코드 편집</h2>
+                        <p>Claude Code는 컨텍스트를 이해하고 안전하게 코드를 수정합니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-output">> 회원가입 폼에 입력 유효성 검사를 추가해줘</span>
+<span class="code-output">> 로거를 새로운 API를 사용하도록 리팩토링해줘</span>
+<span class="code-output">> 워커 큐의 경쟁 조건을 수정해줘</span>
+<span class="code-output">> 이 함수를 TypeScript로 변환해줘</span>
+<span class="code-output">> 코드에서 중복된 부분을 리팩토링해줘</span></code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>🔧 코드 편집 팁</h3>
+                            <ul>
+                                <li>변경 전 Claude가 현재 코드를 이해했는지 확인하세요</li>
+                                <li>대규모 리팩토링은 단계별로 진행하는 것이 좋습니다</li>
+                                <li>테스트가 있다면 변경 후 실행하도록 요청하세요</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>4. 코드 테스트 및 디버깅</h2>
+                        <p>테스트 실행, 디버깅, 버그 수정을 자동화합니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>테스트 실행 및 수정</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 인증 모듈의 테스트를 실행하고 실패를 수정해줘</span>
+<span class="code-output">> 모든 테스트를 실행하고 결과를 요약해줘</span>
+<span class="code-output">> 이 기능에 대한 단위 테스트를 작성해줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>보안 및 버그 분석</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 보안 취약점을 찾아서 수정해줘</span>
+<span class="code-output">> 이 테스트가 실패하는 이유를 설명해줘</span>
+<span class="code-output">> 메모리 누수가 있는지 확인해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>5. 심층적 사고 유도하기</h2>
+                        <p>복잡한 문제의 경우, Claude에게 더 깊이 생각하도록 명시적으로 요청할 수 있습니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-output">> 새로운 결제 서비스를 어떻게 설계해야 할지 생각해봐</span>
+<span class="code-output">> 인증 플로우의 엣지 케이스에 대해 깊이 생각해봐</span>
+<span class="code-output">> 이 성능 문제를 해결할 방법을 깊이 생각해봐</span></code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>🧠 효과적인 사고 유도</h3>
+                            <ul>
+                                <li>먼저 Claude에게 작업에 대해 알려주고 컨텍스트를 수집하게 하세요</li>
+                                <li>그다음 "생각해봐" 또는 "깊이 생각해봐"라고 요청하세요</li>
+                                <li>"깊이 생각해봐"는 더 확장된 사고를 유발합니다</li>
+                                <li>Claude가 확장된 사고를 사용할 때 이를 표시합니다</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>실전 예제</h2>
+                        
+                        <div class="example-box">
+                            <h3>예제 1: 새 기능 추가</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-output">> 사용자 프로필 페이지를 만들어야 해. 먼저 현재 인증 시스템을 이해해줘</span>
+<span class="code-comment"># Claude가 인증 시스템을 분석합니다</span>
+
+<span class="code-output">> 프로필 페이지 구현 방법을 깊이 생각해봐</span>
+<span class="code-comment"># Claude가 설계를 제안합니다</span>
+
+<span class="code-output">> 프로필 페이지를 구현해줘</span>
+<span class="code-comment"># Claude가 코드를 작성합니다</span></code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>예제 2: 버그 수정</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-output">> 로그인 후 리다이렉트가 작동하지 않아. 문제를 찾아줘</span>
+<span class="code-comment"># Claude가 관련 코드를 분석합니다</span>
+
+<span class="code-output">> 문제를 수정하고 테스트를 추가해줘</span>
+<span class="code-comment"># Claude가 버그를 수정하고 테스트를 작성합니다</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="advanced-features.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">고급 기능 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

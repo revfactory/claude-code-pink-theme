@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설정 파일 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item active">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">설정</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="memory-management.html" class="sidebar-link">메모리 관리</a></li>
+                        <li><a href="settings-file.html" class="sidebar-link active">설정 파일</a></li>
+                        <li><a href="security.html" class="sidebar-link">보안</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">설정 파일</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code는 프로젝트별 설정 파일을 통해 동작을 세밀하게 제어할 수 있습니다. 프로젝트 루트에 <code>.claude</code> 파일을 생성하여 설정을 관리합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>기본 설정 파일 구조</h2>
+                        <p><code>.claude</code> 파일은 JSON 형식으로 작성되며, 다양한 옵션을 포함할 수 있습니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"version"</span>: <span class="code-string">"1.0"</span>,
+  <span class="code-key">"model"</span>: <span class="code-string">"claude-3-opus"</span>,
+  <span class="code-key">"language"</span>: <span class="code-string">"ko"</span>,
+  <span class="code-key">"tools"</span>: {
+    <span class="code-key">"allowed"</span>: [<span class="code-string">"read"</span>, <span class="code-string">"write"</span>, <span class="code-string">"bash"</span>, <span class="code-string">"grep"</span>],
+    <span class="code-key">"disallowed"</span>: [<span class="code-string">"webSearch"</span>]
+  },
+  <span class="code-key">"files"</span>: {
+    <span class="code-key">"exclude"</span>: [
+      <span class="code-string">"node_modules/**"</span>,
+      <span class="code-string">"dist/**"</span>,
+      <span class="code-string">"*.min.js"</span>
+    ],
+    <span class="code-key">"include"</span>: [
+      <span class="code-string">"src/**"</span>,
+      <span class="code-string">"tests/**"</span>
+    ]
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>주요 설정 옵션</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>모델 설정</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"model"</span>: <span class="code-string">"claude-3-opus"</span>,
+  <span class="code-key">"modelOptions"</span>: {
+    <span class="code-key">"temperature"</span>: 0.7,
+    <span class="code-key">"maxTokens"</span>: 4096,
+    <span class="code-key">"topP"</span>: 0.9
+  }
+}</code></pre>
+                                </div>
+                                <ul>
+                                    <li><strong>model</strong>: 사용할 Claude 모델 지정</li>
+                                    <li><strong>temperature</strong>: 응답의 창의성 수준 (0.0-1.0)</li>
+                                    <li><strong>maxTokens</strong>: 최대 응답 길이</li>
+                                    <li><strong>topP</strong>: 누적 확률 임계값</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>도구 권한 설정</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"tools"</span>: {
+    <span class="code-key">"allowed"</span>: [
+      <span class="code-string">"read"</span>,
+      <span class="code-string">"write"</span>,
+      {
+        <span class="code-key">"name"</span>: <span class="code-string">"bash"</span>,
+        <span class="code-key">"commands"</span>: [<span class="code-string">"npm test"</span>, <span class="code-string">"npm run"</span>]
+      }
+    ],
+    <span class="code-key">"requireConfirmation"</span>: [<span class="code-string">"write"</span>, <span class="code-string">"bash"</span>],
+    <span class="code-key">"timeout"</span>: 30000
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>파일 필터링</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"files"</span>: {
+    <span class="code-key">"exclude"</span>: [
+      <span class="code-string">"**/*.log"</span>,
+      <span class="code-string">"**/*.tmp"</span>,
+      <span class="code-string">".git/**"</span>,
+      <span class="code-string">"coverage/**"</span>
+    ],
+    <span class="code-key">"include"</span>: [
+      <span class="code-string">"src/**/*.{js,ts,jsx,tsx}"</span>,
+      <span class="code-string">"tests/**/*.test.js"</span>
+    ],
+    <span class="code-key">"maxFileSize"</span>: <span class="code-string">"2MB"</span>,
+    <span class="code-key">"followSymlinks"</span>: <span class="code-boolean">false</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>프로젝트별 커스터마이징</h2>
+                        
+                        <div class="example-box">
+                            <h3>React 프로젝트 예제</h3>
+                            <div class="code-example">
+                                <pre><code>{
+  <span class="code-key">"version"</span>: <span class="code-string">"1.0"</span>,
+  <span class="code-key">"projectType"</span>: <span class="code-string">"react"</span>,
+  <span class="code-key">"conventions"</span>: {
+    <span class="code-key">"componentStyle"</span>: <span class="code-string">"functional"</span>,
+    <span class="code-key">"stateManagement"</span>: <span class="code-string">"hooks"</span>,
+    <span class="code-key">"styling"</span>: <span class="code-string">"styled-components"</span>
+  },
+  <span class="code-key">"codeStyle"</span>: {
+    <span class="code-key">"quotes"</span>: <span class="code-string">"single"</span>,
+    <span class="code-key">"semicolons"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"indentSize"</span>: 2
+  },
+  <span class="code-key">"testing"</span>: {
+    <span class="code-key">"framework"</span>: <span class="code-string">"jest"</span>,
+    <span class="code-key">"coverageThreshold"</span>: 80
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>Python 프로젝트 예제</h3>
+                            <div class="code-example">
+                                <pre><code>{
+  <span class="code-key">"version"</span>: <span class="code-string">"1.0"</span>,
+  <span class="code-key">"projectType"</span>: <span class="code-string">"python"</span>,
+  <span class="code-key">"python"</span>: {
+    <span class="code-key">"version"</span>: <span class="code-string">"3.11"</span>,
+    <span class="code-key">"packageManager"</span>: <span class="code-string">"poetry"</span>,
+    <span class="code-key">"linter"</span>: <span class="code-string">"ruff"</span>,
+    <span class="code-key">"formatter"</span>: <span class="code-string">"black"</span>
+  },
+  <span class="code-key">"tools"</span>: {
+    <span class="code-key">"allowed"</span>: [
+      <span class="code-string">"read"</span>,
+      <span class="code-string">"write"</span>,
+      {
+        <span class="code-key">"name"</span>: <span class="code-string">"bash"</span>,
+        <span class="code-key">"commands"</span>: [<span class="code-string">"poetry run"</span>, <span class="code-string">"pytest"</span>]
+      }
+    ]
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>고급 설정</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>커스텀 명령어</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"customCommands"</span>: {
+    <span class="code-key">"deploy"</span>: {
+      <span class="code-key">"description"</span>: <span class="code-string">"프로덕션 배포"</span>,
+      <span class="code-key">"steps"</span>: [
+        <span class="code-string">"npm test"</span>,
+        <span class="code-string">"npm run build"</span>,
+        <span class="code-string">"npm run deploy:prod"</span>
+      ]
+    },
+    <span class="code-key">"review"</span>: {
+      <span class="code-key">"description"</span>: <span class="code-string">"코드 리뷰 실행"</span>,
+      <span class="code-key">"prompt"</span>: <span class="code-string">"코드 스타일 가이드에 따라 리뷰해주세요"</span>
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>환경별 설정</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"environments"</span>: {
+    <span class="code-key">"development"</span>: {
+      <span class="code-key">"tools"</span>: {
+        <span class="code-key">"allowed"</span>: [<span class="code-string">"*"</span>]
+      }
+    },
+    <span class="code-key">"production"</span>: {
+      <span class="code-key">"tools"</span>: {
+        <span class="code-key">"allowed"</span>: [<span class="code-string">"read"</span>, <span class="code-string">"grep"</span>],
+        <span class="code-key">"disallowed"</span>: [<span class="code-string">"write"</span>, <span class="code-string">"bash"</span>]
+      },
+      <span class="code-key">"readOnly"</span>: <span class="code-boolean">true</span>
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>보안 설정</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"security"</span>: {
+    <span class="code-key">"sensitiveFiles"</span>: [
+      <span class="code-string">".env"</span>,
+      <span class="code-string">"**/*.key"</span>,
+                <span class="code-string">"**/*.pem"</span>
+    ],
+    <span class="code-key">"redactPatterns"</span>: [
+      <span class="code-string">"API_KEY=.*"</span>,
+      <span class="code-string">"PASSWORD=.*"</span>
+    ],
+    <span class="code-key">"requireAuth"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"allowedUsers"</span>: [<span class="code-string">"user@example.com"</span>]
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>템플릿과 스니펫</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"templates"</span>: {
+    <span class="code-key">"component"</span>: {
+      <span class="code-key">"path"</span>: <span class="code-string">"templates/react-component.js"</span>,
+      <span class="code-key">"variables"</span>: [<span class="code-string">"componentName"</span>, <span class="code-string">"props"</span>]
+    },
+    <span class="code-key">"test"</span>: {
+      <span class="code-key">"path"</span>: <span class="code-string">"templates/jest-test.js"</span>
+    }
+  },
+  <span class="code-key">"snippets"</span>: {
+    <span class="code-key">"api-endpoint"</span>: <span class="code-string">"snippets/api-endpoint.js"</span>,
+    <span class="code-key">"error-handler"</span>: <span class="code-string">"snippets/error-handler.js"</span>
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>설정 상속과 오버라이드</h2>
+                        <p>Claude Code는 여러 레벨의 설정 파일을 지원합니다:</p>
+                        
+                        <ol class="steps-list">
+                            <li>전역 설정: <code>~/.claude/config.json</code></li>
+                            <li>프로젝트 설정: <code>project/.claude</code></li>
+                            <li>디렉토리 설정: <code>subdir/.claude</code></li>
+                            <li>환경 변수</li>
+                            <li>명령줄 옵션</li>
+                        </ol>
+                        
+                        <div class="highlight-box">
+                            <h3>📝 우선순위</h3>
+                            <p>하위 레벨의 설정이 상위 레벨을 오버라이드합니다. 명령줄 옵션이 가장 높은 우선순위를 가집니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>설정 검증</h2>
+                        <p>설정 파일이 올바른지 확인하는 명령어:</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># 설정 파일 검증</span>
+<span class="code-command">claude validate-config</span>
+
+<span class="code-comment"># 현재 적용된 설정 확인</span>
+<span class="code-command">claude config --show</span>
+
+<span class="code-comment"># 설정 파일 생성 도우미</span>
+<span class="code-command">claude init</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>모범 사례</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 설정 파일 관리 팁</h3>
+                            <ul>
+                                <li>민감한 정보는 환경 변수로 관리</li>
+                                <li>팀 프로젝트는 공통 설정 파일 사용</li>
+                                <li><code>.claude</code> 파일을 버전 관리에 포함</li>
+                                <li>환경별로 다른 설정 파일 사용 고려</li>
+                                <li>주기적으로 설정 검토 및 업데이트</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="security.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">보안 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

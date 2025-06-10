@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모리 관리 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item active">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">설정</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="memory-management.html" class="sidebar-link active">메모리 관리</a></li>
+                        <li><a href="settings-file.html" class="sidebar-link">설정 파일</a></li>
+                        <li><a href="security.html" class="sidebar-link">보안</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">메모리 관리</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code는 대규모 코드베이스에서도 효율적으로 작동하도록 설계되었습니다. 컨텍스트 윈도우를 최적화하고 메모리 사용을 관리하는 다양한 전략을 제공합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>컨텍스트 윈도우 이해하기</h2>
+                        <p>Claude Code는 제한된 컨텍스트 윈도우 내에서 작동합니다. 효율적인 메모리 관리를 통해 더 많은 정보를 처리할 수 있습니다.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>📊 컨텍스트 크기</h3>
+                            <ul>
+                                <li><strong>Claude 3 Opus</strong>: 200,000 토큰</li>
+                                <li><strong>Claude 3 Sonnet</strong>: 200,000 토큰</li>
+                                <li><strong>Claude 3 Haiku</strong>: 200,000 토큰</li>
+                            </ul>
+                            <p>1 토큰 ≈ 0.75 단어 (영어 기준)</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>메모리 최적화 전략</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>1. 스마트 파일 선택</h3>
+                                <p>Claude Code는 필요한 파일만 선택적으로 읽어 메모리를 절약합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> src 폴더의 TypeScript 파일만 분석해줘</span>
+<span class="code-output">> 최근 7일 이내 수정된 파일만 확인해줘</span>
+<span class="code-output">> 테스트 파일은 제외하고 분석해줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>2. 대화 히스토리 관리</h3>
+                                <p>오래된 대화 내용을 자동으로 요약하여 컨텍스트를 절약합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 대화 초기화</span>
+<span class="code-output">> /reset</span>
+
+<span class="code-comment"># 특정 컨텍스트만 유지</span>
+<span class="code-output">> 이전 대화는 잊고 새로 시작해줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>3. 점진적 탐색</h3>
+                                <p>전체 코드베이스를 한 번에 로드하지 않고 필요에 따라 점진적으로 탐색합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 먼저 프로젝트 구조를 간단히 설명해줘</span>
+<span class="code-comment"># Claude가 전체 구조를 파악</span>
+
+<span class="code-output">> 이제 인증 모듈을 자세히 분석해줘</span>
+<span class="code-comment"># 특정 모듈에 집중</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>설정 파일을 통한 메모리 관리</h2>
+                        <p><code>.claude</code> 파일을 통해 프로젝트별 메모리 관리 정책을 설정할 수 있습니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"memory"</span>: {
+    <span class="code-key">"contextWindow"</span>: {
+      <span class="code-key">"maxTokens"</span>: 100000,
+      <span class="code-key">"reserveForOutput"</span>: 4000
+    },
+    <span class="code-key">"fileFilters"</span>: {
+      <span class="code-key">"exclude"</span>: [
+        <span class="code-string">"node_modules/**"</span>,
+        <span class="code-string">"dist/**"</span>,
+        <span class="code-string">"*.min.js"</span>,
+        <span class="code-string">"*.map"</span>
+      ],
+      <span class="code-key">"maxFileSize"</span>: <span class="code-string">"1MB"</span>
+    },
+    <span class="code-key">"conversationHistory"</span>: {
+      <span class="code-key">"maxMessages"</span>: 20,
+      <span class="code-key">"summarizeAfter"</span>: 10
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>대규모 프로젝트 작업 팁</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>🏗️ 모노레포 작업</h3>
+                            <ul>
+                                <li>작업할 패키지를 명시적으로 지정</li>
+                                <li>패키지별로 별도 세션 사용 고려</li>
+                                <li>공통 코드는 필요할 때만 참조</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>효율적인 작업 예시</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-output">> packages/auth 패키지만 작업할게</span>
+<span class="code-output">> 이 패키지의 외부 의존성을 최소화하고 싶어</span>
+<span class="code-output">> 다른 패키지와의 연결점만 확인해줘</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>메모리 사용량 모니터링</h2>
+                        <p>Claude Code는 현재 컨텍스트 사용량을 추적하고 최적화 제안을 제공합니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>사용량 확인</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 현재 컨텍스트 사용량을 보여줘</span>
+<span class="code-comment"># Claude가 현재 메모리 사용 상태를 보고</span>
+
+<span class="code-output">> 어떤 파일이 가장 많은 컨텍스트를 차지하고 있어?</span>
+<span class="code-comment"># 대용량 파일 식별</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>자동 최적화</h3>
+                                <p>Claude Code는 컨텍스트가 가득 차면 자동으로 최적화를 수행합니다:</p>
+                                <ul>
+                                    <li>오래된 대화 내용 요약</li>
+                                    <li>사용하지 않는 파일 컨텍스트 제거</li>
+                                    <li>중복 정보 제거</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>성능 최적화 기법</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>1. 작업 분할</h3>
+                                <p>큰 작업을 작은 단위로 나누어 처리합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 비효율적</span>
+<span class="code-output">> 전체 애플리케이션을 TypeScript로 마이그레이션해줘</span>
+
+<span class="code-comment"># 효율적</span>
+<span class="code-output">> utils 폴더의 파일들을 TypeScript로 변환해줘</span>
+<span class="code-output">> 다음으로 components 폴더를 변환해줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>2. 선택적 로딩</h3>
+                                <p>필요한 정보만 요청하여 메모리를 절약합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> UserService 클래스의 메서드 시그니처만 보여줘</span>
+<span class="code-output">> 구현 세부사항은 나중에 필요할 때 확인할게</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>3. 컨텍스트 재사용</h3>
+                                <p>관련 작업을 연속해서 수행하여 컨텍스트를 재사용합니다.</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> API 엔드포인트를 분석해줘</span>
+<span class="code-output">> 방금 분석한 엔드포인트에 대한 테스트를 작성해줘</span>
+<span class="code-output">> 이 엔드포인트의 문서도 생성해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>문제 해결</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>⚠️ 일반적인 메모리 문제와 해결책</h3>
+                            <ul>
+                                <li><strong>컨텍스트 초과</strong>: 작업을 더 작은 단위로 분할</li>
+                                <li><strong>느린 응답</strong>: 불필요한 파일 제외</li>
+                                <li><strong>정보 손실</strong>: 중요한 컨텍스트를 명시적으로 유지</li>
+                                <li><strong>반복적인 질문</strong>: 대화 히스토리 초기화 고려</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>고급 설정</h2>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># 환경 변수를 통한 메모리 설정</span>
+<span class="code-command">export CLAUDE_MAX_CONTEXT_TOKENS=150000</span>
+<span class="code-command">export CLAUDE_AUTO_SUMMARIZE=true</span>
+<span class="code-command">export CLAUDE_FILE_SIZE_LIMIT=2MB</span>
+
+<span class="code-comment"># CLI 옵션</span>
+<span class="code-command">claude --max-context 100000 --auto-optimize</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="settings-file.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">설정 파일 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

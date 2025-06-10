@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 설정 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item active">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">팀 & 기업</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="team-setup.html" class="sidebar-link active">팀 설정</a></li>
+                        <li><a href="cost-management.html" class="sidebar-link">비용 관리</a></li>
+                        <li><a href="monitoring.html" class="sidebar-link">모니터링</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">팀 설정</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code를 팀 환경에서 효과적으로 사용하기 위한 설정 가이드입니다. 팀 전체의 생산성을 높이고 일관된 개발 환경을 구축할 수 있습니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>팀 계정 설정</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>👥 Claude Code Teams</h3>
+                            <p>팀 플랜을 통해 다음 기능을 사용할 수 있습니다:</p>
+                            <ul>
+                                <li>중앙 집중식 사용자 관리</li>
+                                <li>팀 전체 설정 공유</li>
+                                <li>사용량 추적 및 보고</li>
+                                <li>역할 기반 액세스 제어</li>
+                                <li>우선 지원 서비스</li>
+                            </ul>
+                        </div>
+                        
+                        <ol class="steps-list">
+                            <li>Claude Code Teams 페이지에서 조직 생성</li>
+                            <li>팀 멤버 초대 및 역할 할당</li>
+                            <li>결제 정보 등록</li>
+                            <li>팀 전체 정책 설정</li>
+                        </ol>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>역할 및 권한 관리</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>역할 유형</h3>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>역할</th>
+                                            <th>권한</th>
+                                            <th>설명</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Owner</strong></td>
+                                            <td>모든 권한</td>
+                                            <td>조직 관리, 결제, 멤버 관리</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Admin</strong></td>
+                                            <td>관리 권한</td>
+                                            <td>멤버 관리, 설정 변경</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Developer</strong></td>
+                                            <td>사용 권한</td>
+                                            <td>Claude Code 전체 기능 사용</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Viewer</strong></td>
+                                            <td>읽기 전용</td>
+                                            <td>로그 및 보고서 열람</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>권한 설정 예제</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"teamSettings"</span>: {
+    <span class="code-key">"roles"</span>: {
+      <span class="code-key">"senior-dev"</span>: {
+        <span class="code-key">"tools"</span>: [<span class="code-string">"*"</span>],
+        <span class="code-key">"maxContextTokens"</span>: 200000
+      },
+      <span class="code-key">"junior-dev"</span>: {
+        <span class="code-key">"tools"</span>: [<span class="code-string">"read"</span>, <span class="code-string">"write"</span>, <span class="code-string">"grep"</span>],
+        <span class="code-key">"requireApproval"</span>: [<span class="code-string">"bash"</span>],
+        <span class="code-key">"maxContextTokens"</span>: 100000
+      },
+      <span class="code-key">"intern"</span>: {
+        <span class="code-key">"tools"</span>: [<span class="code-string">"read"</span>, <span class="code-string">"grep"</span>],
+        <span class="code-key">"readOnly"</span>: <span class="code-boolean">true</span>
+      }
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>공유 설정 관리</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>팀 설정 파일</h3>
+                                <p>팀 전체가 사용할 공통 설정을 정의합니다:</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># team-claude.json</span>
+{
+  <span class="code-key">"version"</span>: <span class="code-string">"1.0"</span>,
+  <span class="code-key">"team"</span>: <span class="code-string">"engineering"</span>,
+  <span class="code-key">"codeStyle"</span>: {
+    <span class="code-key">"language"</span>: <span class="code-string">"TypeScript"</span>,
+    <span class="code-key">"linter"</span>: <span class="code-string">"eslint"</span>,
+    <span class="code-key">"formatter"</span>: <span class="code-string">"prettier"</span>,
+    <span class="code-key">"indentation"</span>: 2
+  },
+  <span class="code-key">"conventions"</span>: {
+    <span class="code-key">"namingStyle"</span>: <span class="code-string">"camelCase"</span>,
+    <span class="code-key">"componentPattern"</span>: <span class="code-string">"PascalCase"</span>,
+    <span class="code-key">"testFilePattern"</span>: <span class="code-string">"*.test.ts"</span>
+  },
+  <span class="code-key">"securityPolicies"</span>: {
+    <span class="code-key">"enforceHttps"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"disallowHardcodedSecrets"</span>: <span class="code-boolean">true</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>템플릿 공유</h3>
+                                <p>팀에서 자주 사용하는 코드 템플릿을 공유합니다:</p>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 팀 템플릿 저장소 설정</span>
+<span class="code-command">git clone https://github.com/team/claude-templates.git ~/.claude/team-templates</span>
+
+<span class="code-comment"># 설정 파일에서 참조</span>
+{
+  <span class="code-key">"templates"</span>: {
+    <span class="code-key">"baseUrl"</span>: <span class="code-string">"~/.claude/team-templates"</span>,
+    <span class="code-key">"autoUpdate"</span>: <span class="code-boolean">true</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>협업 워크플로우</h2>
+                        
+                        <div class="example-box">
+                            <h3>코드 리뷰 프로세스</h3>
+                            <ol class="steps-list">
+                                <li>개발자가 Claude Code로 코드 작성</li>
+                                <li>자동으로 팀 코딩 표준 적용</li>
+                                <li>PR 생성 시 Claude가 초기 리뷰 수행</li>
+                                <li>시니어 개발자가 최종 검토</li>
+                            </ol>
+                            
+                            <div class="code-example">
+                                <pre><code><span class="code-comment"># .github/workflows/claude-review.yml</span>
+<span class="code-keyword">name</span>: <span class="code-string">Claude Team Review</span>
+<span class="code-keyword">on</span>: [<span class="code-string">pull_request</span>]
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">review</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+      - <span class="code-keyword">name</span>: <span class="code-string">Run Team Code Review</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">CLAUDE_TEAM_CONFIG</span>: <span class="code-string">./team-claude.json</span>
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "팀 코딩 표준에 따라 코드를 리뷰해주세요"</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>지식 공유</h3>
+                            <p>팀 내 지식을 효과적으로 공유하는 방법:</p>
+                            <ul>
+                                <li>공통 문제 해결 패턴 문서화</li>
+                                <li>Claude Code 사용 팁 공유</li>
+                                <li>프로젝트별 컨텍스트 파일 관리</li>
+                                <li>정기적인 베스트 프랙티스 업데이트</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>온보딩 프로세스</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>🚀 신규 팀원 온보딩</h3>
+                            <ol class="steps-list">
+                                <li>Claude Code 계정 생성 및 팀 초대</li>
+                                <li>역할 및 권한 할당</li>
+                                <li>팀 설정 파일 공유</li>
+                                <li>프로젝트별 컨텍스트 소개</li>
+                                <li>Claude Code 사용법 교육</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># 온보딩 스크립트</span>
+<span class="code-comment">#!/bin/bash</span>
+
+<span class="code-keyword">echo</span> <span class="code-string">"Claude Code 팀 환경 설정 중..."</span>
+
+<span class="code-comment"># 팀 설정 다운로드</span>
+<span class="code-command">curl -o ~/.claude/team-config.json https://team.example.com/claude-config</span>
+
+<span class="code-comment"># 팀 템플릿 동기화</span>
+<span class="code-command">git clone https://github.com/team/templates ~/.claude/team-templates</span>
+
+<span class="code-comment"># API 키 설정 안내</span>
+<span class="code-keyword">echo</span> <span class="code-string">"API 키를 환경 변수에 설정하세요:"</span>
+<span class="code-keyword">echo</span> <span class="code-string">"export ANTHROPIC_API_KEY='your-team-key'"</span>
+
+<span class="code-keyword">echo</span> <span class="code-string">"설정 완료! 'claude' 명령으로 시작하세요."</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>팀 생산성 도구</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>공유 스니펫</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"teamSnippets"</span>: {
+    <span class="code-key">"errorHandler"</span>: {
+      <span class="code-key">"description"</span>: <span class="code-string">"표준 에러 핸들러"</span>,
+      <span class="code-key">"template"</span>: <span class="code-string">"snippets/error-handler.ts"</span>
+    },
+    <span class="code-key">"apiClient"</span>: {
+      <span class="code-key">"description"</span>: <span class="code-string">"API 클라이언트 설정"</span>,
+      <span class="code-key">"template"</span>: <span class="code-string">"snippets/api-client.ts"</span>
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>팀 매크로</h3>
+                                <p>자주 사용하는 작업을 매크로로 정의:</p>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"teamMacros"</span>: {
+    <span class="code-key">"daily-standup"</span>: <span class="code-string">"어제 작업한 내용을 요약하고 오늘 계획을 작성해줘"</span>,
+    <span class="code-key">"sprint-review"</span>: <span class="code-string">"이번 스프린트의 변경사항을 분석하고 보고서를 작성해줘"</span>,
+    <span class="code-key">"tech-debt"</span>: <span class="code-string">"기술 부채를 찾아서 우선순위별로 정리해줘"</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>팀 정책 적용</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"teamPolicies"</span>: {
+    <span class="code-key">"codeReview"</span>: {
+      <span class="code-key">"required"</span>: <span class="code-boolean">true</span>,
+      <span class="code-key">"minReviewers"</span>: 2,
+      <span class="code-key">"autoAssign"</span>: <span class="code-boolean">true</span>
+    },
+    <span class="code-key">"testing"</span>: {
+      <span class="code-key">"minCoverage"</span>: 80,
+      <span class="code-key">"requireTests"</span>: <span class="code-boolean">true</span>
+    },
+    <span class="code-key">"security"</span>: {
+      <span class="code-key">"scanOnCommit"</span>: <span class="code-boolean">true</span>,
+      <span class="code-key">"blockHighSeverity"</span>: <span class="code-boolean">true</span>
+    },
+    <span class="code-key">"documentation"</span>: {
+      <span class="code-key">"requireJsdoc"</span>: <span class="code-boolean">true</span>,
+      <span class="code-key">"updateReadme"</span>: <span class="code-boolean">true</span>
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>분산 팀 지원</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>🌍 글로벌 팀 고려사항</h3>
+                            <ul>
+                                <li><strong>타임존 관리</strong>: 비동기 협업 워크플로우 구축</li>
+                                <li><strong>언어 설정</strong>: 다국어 프롬프트 템플릿 지원</li>
+                                <li><strong>지역별 규정</strong>: 데이터 지역화 요구사항 준수</li>
+                                <li><strong>네트워크 최적화</strong>: 가장 가까운 엔드포인트 사용</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="cost-management.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">비용 관리 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

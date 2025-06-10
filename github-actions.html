@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item active">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">통합</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="ide-integration.html" class="sidebar-link">IDE 통합</a></li>
+                        <li><a href="github-actions.html" class="sidebar-link active">GitHub Actions</a></li>
+                        <li><a href="sdk.html" class="sidebar-link">SDK</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">GitHub Actions 통합</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code를 GitHub Actions 워크플로우에 통합하여 CI/CD 파이프라인을 AI로 강화할 수 있습니다. 코드 리뷰, 문서 생성, 테스트 자동화 등 다양한 작업을 자동화할 수 있습니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>기본 설정</h2>
+                        <p>먼저 GitHub 리포지토리에 Claude Code API 키를 시크릿으로 추가해야 합니다.</p>
+                        
+                        <ol class="steps-list">
+                            <li>GitHub 리포지토리의 Settings → Secrets and variables → Actions로 이동</li>
+                            <li>"New repository secret" 클릭</li>
+                            <li>Name: <code>ANTHROPIC_API_KEY</code></li>
+                            <li>Value: 실제 API 키 입력</li>
+                            <li>"Add secret" 클릭</li>
+                        </ol>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>자동 코드 리뷰</h2>
+                        <p>Pull Request가 생성되면 자동으로 코드 리뷰를 수행하는 워크플로우입니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">name</span>: <span class="code-string">AI Code Review</span>
+<span class="code-keyword">on</span>:
+  <span class="code-keyword">pull_request</span>:
+    <span class="code-keyword">types</span>: [<span class="code-string">opened</span>, <span class="code-string">synchronize</span>]
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">review</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">name</span>: <span class="code-string">Checkout code</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">fetch-depth</span>: <span class="code-number">0</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Setup Node.js</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">actions/setup-node@v3</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">node-version</span>: <span class="code-string">'18'</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Run Claude Code Review</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "PR의 변경사항을 리뷰하고 개선사항을 제안해줘" \
+            --allowedTools Read Grep "Bash(git diff:*)"
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Comment PR</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">actions/github-script@v6</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">script</span>: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '### 🤖 AI Code Review 완료\n리뷰 결과가 위에 표시됩니다.'
+            })</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>테스트 자동 수정</h2>
+                        <p>테스트가 실패하면 Claude Code가 자동으로 수정을 시도하는 워크플로우입니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">name</span>: <span class="code-string">Auto Fix Tests</span>
+<span class="code-keyword">on</span>:
+  <span class="code-keyword">push</span>:
+    <span class="code-keyword">branches</span>: [<span class="code-string">main</span>, <span class="code-string">develop</span>]
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">test-and-fix</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Setup environment</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">actions/setup-node@v3</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">node-version</span>: <span class="code-string">'18'</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Install dependencies</span>
+        <span class="code-keyword">run</span>: <span class="code-string">npm ci</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Run tests</span>
+        <span class="code-keyword">id</span>: <span class="code-string">test</span>
+        <span class="code-keyword">continue-on-error</span>: <span class="code-boolean">true</span>
+        <span class="code-keyword">run</span>: <span class="code-string">npm test</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Fix failing tests</span>
+        <span class="code-keyword">if</span>: <span class="code-string">steps.test.outcome == 'failure'</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "테스트를 실행하고 실패한 테스트를 수정해줘" \
+            --allowedTools Read Write "Bash(npm test:*)"
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Commit fixes</span>
+        <span class="code-keyword">if</span>: <span class="code-string">steps.test.outcome == 'failure'</span>
+        <span class="code-keyword">run</span>: |
+          git config --local user.email "claude-bot@example.com"
+          git config --local user.name "Claude Bot"
+          git add .
+          git commit -m "fix: Auto-fix failing tests 🤖"
+          git push</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>문서 자동 생성</h2>
+                        <p>코드 변경사항을 기반으로 문서를 자동으로 업데이트하는 워크플로우입니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">name</span>: <span class="code-string">Update Documentation</span>
+<span class="code-keyword">on</span>:
+  <span class="code-keyword">push</span>:
+    <span class="code-keyword">branches</span>: [<span class="code-string">main</span>]
+    <span class="code-keyword">paths</span>:
+      - <span class="code-string">'src/**'</span>
+      - <span class="code-string">'lib/**'</span>
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">update-docs</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Generate API documentation</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "API 문서를 최신 코드 변경사항에 맞게 업데이트해줘" \
+            --allowedTools Read Write Grep
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Update README</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "README의 사용 예제를 최신 API에 맞게 업데이트해줘" \
+            --allowedTools Read Write
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Create Pull Request</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">peter-evans/create-pull-request@v5</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">commit-message</span>: <span class="code-string">'docs: Update documentation 📚'</span>
+          <span class="code-keyword">title</span>: <span class="code-string">'Update Documentation'</span>
+          <span class="code-keyword">body</span>: <span class="code-string">'Automated documentation update based on recent code changes.'</span>
+          <span class="code-keyword">branch</span>: <span class="code-string">'update-docs'</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>릴리스 노트 생성</h2>
+                        <p>새 버전을 릴리스할 때 자동으로 릴리스 노트를 생성합니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">name</span>: <span class="code-string">Generate Release Notes</span>
+<span class="code-keyword">on</span>:
+  <span class="code-keyword">push</span>:
+    <span class="code-keyword">tags</span>:
+      - <span class="code-string">'v*'</span>
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">release</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">fetch-depth</span>: <span class="code-number">0</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Generate release notes</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "이전 태그 이후의 커밋을 분석하고 릴리스 노트를 생성해줘" \
+            --allowedTools "Bash(git log:*)" "Bash(git diff:*)" Write \
+            > release_notes.md
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Create Release</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">softprops/action-gh-release@v1</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">body_path</span>: <span class="code-string">release_notes.md</span>
+          <span class="code-keyword">draft</span>: <span class="code-boolean">false</span>
+          <span class="code-keyword">prerelease</span>: <span class="code-boolean">false</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>보안 스캔 및 수정</h2>
+                        <p>보안 취약점을 스캔하고 자동으로 수정하는 워크플로우입니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-keyword">name</span>: <span class="code-string">Security Scan and Fix</span>
+<span class="code-keyword">on</span>:
+  <span class="code-keyword">schedule</span>:
+    - <span class="code-keyword">cron</span>: <span class="code-string">'0 0 * * 1'</span>  <span class="code-comment"># 매주 월요일</span>
+  <span class="code-keyword">workflow_dispatch</span>:
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">security</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Run security audit</span>
+        <span class="code-keyword">run</span>: <span class="code-string">npm audit --json > audit.json</span>
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Fix vulnerabilities</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "npm audit 결과를 분석하고 보안 취약점을 수정해줘" \
+            --allowedTools Read Write "Bash(npm:*)"
+
+      - <span class="code-keyword">name</span>: <span class="code-string">Create fix PR</span>
+        <span class="code-keyword">uses</span>: <span class="code-string">peter-evans/create-pull-request@v5</span>
+        <span class="code-keyword">with</span>:
+          <span class="code-keyword">title</span>: <span class="code-string">'Security: Fix vulnerabilities 🔒'</span>
+          <span class="code-keyword">body</span>: <span class="code-string">'Automated security vulnerability fixes'</span>
+          <span class="code-keyword">branch</span>: <span class="code-string">'security-fixes'</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>워크플로우 모범 사례</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 GitHub Actions 통합 팁</h3>
+                            <ul>
+                                <li><strong>도구 제한</strong>: 필요한 도구만 허용하여 보안 강화</li>
+                                <li><strong>타임아웃 설정</strong>: 긴 작업에는 적절한 타임아웃 설정</li>
+                                <li><strong>비용 관리</strong>: API 호출 횟수 모니터링</li>
+                                <li><strong>캐싱 활용</strong>: 의존성 캐싱으로 실행 시간 단축</li>
+                                <li><strong>병렬 실행</strong>: 독립적인 작업은 병렬로 실행</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>복합 워크플로우 예제</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-keyword">name</span>: <span class="code-string">Complete CI/CD Pipeline</span>
+<span class="code-keyword">on</span>: [<span class="code-string">push</span>, <span class="code-string">pull_request</span>]
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">analyze</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+      
+      - <span class="code-keyword">name</span>: <span class="code-string">Code quality check</span>
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "코드 품질을 분석하고 개선사항을 제안해줘" \
+            --allowedTools Read Grep
+
+  <span class="code-keyword">test</span>:
+    <span class="code-keyword">needs</span>: <span class="code-string">analyze</span>
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v3</span>
+      - <span class="code-keyword">run</span>: <span class="code-string">npm test</span>
+
+  <span class="code-keyword">deploy</span>:
+    <span class="code-keyword">needs</span>: <span class="code-string">test</span>
+    <span class="code-keyword">if</span>: <span class="code-string">github.ref == 'refs/heads/main'</span>
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">name</span>: <span class="code-string">Deploy to production</span>
+        <span class="code-keyword">run</span>: <span class="code-string">echo "Deploying..."</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="sdk.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">SDK →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

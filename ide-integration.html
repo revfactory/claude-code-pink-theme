@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDE 통합 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item active">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">통합</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="ide-integration.html" class="sidebar-link active">IDE 통합</a></li>
+                        <li><a href="github-actions.html" class="sidebar-link">GitHub Actions</a></li>
+                        <li><a href="sdk.html" class="sidebar-link">SDK</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">IDE 통합</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code는 주요 IDE와 원활하게 통합되어 개발 환경에서 직접 AI 어시스턴트를 사용할 수 있습니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Visual Studio Code</h2>
+                        <p>VS Code에서 Claude Code를 사용하는 가장 편리한 방법입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>통합 터미널 사용</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># VS Code 터미널에서 직접 실행</span>
+<span class="code-command">claude</span>
+
+<span class="code-comment"># 현재 열린 파일의 컨텍스트로 시작</span>
+<span class="code-command">claude --dir .</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>작업 설정</h3>
+                                <p><code>tasks.json</code>에 Claude Code 작업을 추가하여 빠르게 실행할 수 있습니다.</p>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"version"</span>: <span class="code-string">"2.0.0"</span>,
+  <span class="code-key">"tasks"</span>: [
+    {
+      <span class="code-key">"label"</span>: <span class="code-string">"Claude Code Review"</span>,
+      <span class="code-key">"type"</span>: <span class="code-string">"shell"</span>,
+      <span class="code-key">"command"</span>: <span class="code-string">"claude -p '현재 파일을 리뷰해줘'"</span>,
+      <span class="code-key">"group"</span>: {
+        <span class="code-key">"kind"</span>: <span class="code-string">"build"</span>,
+        <span class="code-key">"isDefault"</span>: <span class="code-boolean">false</span>
+      }
+    },
+    {
+      <span class="code-key">"label"</span>: <span class="code-string">"Claude Fix Tests"</span>,
+      <span class="code-key">"type"</span>: <span class="code-string">"shell"</span>,
+      <span class="code-key">"command"</span>: <span class="code-string">"claude -p '테스트를 실행하고 실패를 수정해줘'"</span>
+    }
+  ]
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>키보드 단축키</h3>
+                                <p><code>keybindings.json</code>에 단축키를 추가합니다.</p>
+                                <div class="code-example">
+                                    <pre><code>[
+  {
+    <span class="code-key">"key"</span>: <span class="code-string">"ctrl+shift+c"</span>,
+    <span class="code-key">"command"</span>: <span class="code-string">"workbench.action.terminal.sendSequence"</span>,
+    <span class="code-key">"args"</span>: {
+      <span class="code-key">"text"</span>: <span class="code-string">"claude\n"</span>
+    }
+  }
+]</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>JetBrains IDEs</h2>
+                        <p>IntelliJ IDEA, WebStorm, PyCharm 등 JetBrains IDE에서의 통합 방법입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>터미널 통합</h3>
+                                <ol class="steps-list">
+                                    <li>View → Tool Windows → Terminal 선택</li>
+                                    <li>터미널에서 <code>claude</code> 명령 실행</li>
+                                    <li>프로젝트 루트에서 자동으로 컨텍스트 인식</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>External Tools 설정</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># Settings → Tools → External Tools에 추가</span>
+Name: Claude Code
+Program: claude
+Arguments: -p "$Prompt$"
+Working directory: $ProjectFileDir$</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Run Configuration</h3>
+                                <p>자주 사용하는 Claude Code 작업을 Run Configuration으로 저장할 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Vim/Neovim</h2>
+                        <p>터미널 기반 에디터에서 Claude Code를 효율적으로 사용하는 방법입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>빠른 실행 명령</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment">" .vimrc 또는 init.vim에 추가</span>
+<span class="code-keyword">command</span>! Claude :!claude
+<span class="code-keyword">command</span>! ClaudeReview :!claude -p "현재 파일을 리뷰해줘"
+<span class="code-keyword">command</span>! ClaudeTest :!claude -p "테스트를 실행해줘"
+
+<span class="code-comment">" 키 매핑</span>
+<span class="code-keyword">nnoremap</span> &lt;leader&gt;cc :Claude&lt;CR&gt;
+<span class="code-keyword">nnoremap</span> &lt;leader&gt;cr :ClaudeReview&lt;CR&gt;</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>비동기 실행 (Neovim)</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment">-- Lua 설정</span>
+<span class="code-keyword">vim.api</span>.nvim_create_user_command(<span class="code-string">'ClaudeAsync'</span>, <span class="code-keyword">function</span>()
+  <span class="code-keyword">vim.fn</span>.jobstart({<span class="code-string">'claude'</span>}, {
+    <span class="code-key">on_stdout</span> = <span class="code-keyword">function</span>(_, data)
+      <span class="code-keyword">print</span>(<span class="code-keyword">vim.inspect</span>(data))
+    <span class="code-keyword">end</span>
+  })
+<span class="code-keyword">end</span>, {})</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Emacs</h2>
+                        <p>Emacs에서 Claude Code를 통합하는 방법입니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment">;; init.el에 추가</span>
+(<span class="code-keyword">defun</span> <span class="code-function">claude-code</span> ()
+  <span class="code-string">"Run Claude Code in the current project."</span>
+  (<span class="code-keyword">interactive</span>)
+  (<span class="code-keyword">let</span> ((<span class="code-variable">default-directory</span> (projectile-project-root)))
+    (shell-command <span class="code-string">"claude"</span>)))
+
+(<span class="code-keyword">defun</span> <span class="code-function">claude-code-review</span> ()
+  <span class="code-string">"Review current file with Claude Code."</span>
+  (<span class="code-keyword">interactive</span>)
+  (shell-command <span class="code-string">"claude -p '현재 파일을 리뷰해줘'"</span>))
+
+<span class="code-comment">;; 키 바인딩</span>
+(global-set-key (kbd <span class="code-string">"C-c c c"</span>) 'claude-code)
+(global-set-key (kbd <span class="code-string">"C-c c r"</span>) 'claude-code-review)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>통합 팁과 모범 사례</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 효율적인 IDE 통합을 위한 팁</h3>
+                            <ul>
+                                <li><strong>프로젝트별 설정</strong>: 각 프로젝트에 맞는 Claude Code 설정 파일 생성</li>
+                                <li><strong>단축키 활용</strong>: 자주 사용하는 작업에 단축키 할당</li>
+                                <li><strong>터미널 분할</strong>: Claude Code를 별도 터미널 창에서 실행하여 동시 작업</li>
+                                <li><strong>출력 리디렉션</strong>: 결과를 파일로 저장하거나 다른 도구와 연계</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>워크플로우 예제</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment"># 1. IDE에서 코드 작성</span>
+<span class="code-comment"># 2. 터미널에서 Claude Code 실행</span>
+<span class="code-command">claude</span>
+
+<span class="code-comment"># 3. 대화형으로 작업 요청</span>
+<span class="code-output">> 방금 작성한 함수에 대한 단위 테스트를 만들어줘</span>
+
+<span class="code-comment"># 4. Claude가 테스트 생성</span>
+<span class="code-comment"># 5. IDE에서 결과 확인 및 수정</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>디버깅 통합</h2>
+                        <p>Claude Code를 디버깅 워크플로우에 통합하여 문제 해결을 가속화할 수 있습니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>에러 분석</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 에러 로그를 Claude에게 전달</span>
+<span class="code-command">claude -p "다음 에러를 분석하고 해결 방법을 제안해줘: $(cat error.log)"</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>스택 트레이스 해석</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 이 스택 트레이스를 분석하고 근본 원인을 찾아줘</span>
+<span class="code-output">> 디버거 출력을 보고 문제를 진단해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="github-actions.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">GitHub Actions →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

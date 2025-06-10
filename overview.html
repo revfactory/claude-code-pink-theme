@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item active">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">시작하기</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="overview.html" class="sidebar-link active">개요</a></li>
+                        <li><a href="requirements.html" class="sidebar-link">시스템 요구사항</a></li>
+                        <li><a href="installation.html" class="sidebar-link">설치 가이드</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">Claude Code 개요</h1>
+                    
+                    <div class="content-section">
+                        <h2>Claude Code란?</h2>
+                        <p>Claude Code는 개발자의 터미널에서 직접 작동하는 AI 기반 코딩 어시스턴트입니다. 복잡한 코드베이스를 이해하고, 파일을 편집하며, 테스트를 실행하고, Git 작업을 자동화하는 등 다양한 개발 작업을 지원합니다.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>🚀 주요 특징</h3>
+                            <ul>
+                                <li>터미널에서 직접 작동하여 개발 워크플로우에 완벽하게 통합</li>
+                                <li>프로젝트 컨텍스트를 자동으로 이해하여 수동 파일 추가 불필요</li>
+                                <li>Amazon Bedrock 및 Google Vertex AI와 같은 엔터프라이즈 통합 지원</li>
+                                <li>강력한 보안 및 직접 API 연결로 데이터 보호</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>주요 기능</h2>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>📝 파일 편집</h3>
+                                <p>코드베이스 전체에서 파일을 편집하고 리팩토링을 수행합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🔍 코드 아키텍처 이해</h3>
+                                <p>복잡한 시스템의 구조와 작동 방식을 빠르게 파악합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🧪 테스트 자동화</h3>
+                                <p>테스트를 실행하고 실패를 수정하며 새로운 테스트를 작성합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🌿 Git 워크플로우</h3>
+                                <p>커밋 생성, PR 제출, 머지 충돌 해결을 자동화합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🌐 웹 검색</h3>
+                                <p>최신 문서와 정보를 검색하여 개발에 활용합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>빠른 시작 예제</h2>
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># Claude Code 설치</span>
+<span class="code-command">npm install -g @anthropic-ai/claude-code</span>
+
+<span class="code-comment"># 프로젝트 디렉토리로 이동</span>
+<span class="code-command">cd my-project</span>
+
+<span class="code-comment"># Claude Code 시작</span>
+<span class="code-command">claude</span>
+
+<span class="code-comment"># 대화형 세션에서 질문하기</span>
+<span class="code-output">> 이 프로젝트의 인증 시스템은 어떻게 작동하나요?</span>
+<span class="code-output">> auth 모듈의 타입 에러를 수정해주세요</span>
+<span class="code-output">> 새로운 사용자 등록 기능을 추가해주세요</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>작동 방식</h2>
+                        <p>Claude Code는 다음과 같은 방식으로 작동합니다:</p>
+                        <ol class="steps-list">
+                            <li>프로젝트 디렉토리에서 실행하면 자동으로 컨텍스트를 파악합니다</li>
+                            <li>자연어로 작업을 요청하면 AI가 이해하고 실행합니다</li>
+                            <li>파일 읽기/쓰기, 명령 실행 등은 사용자 승인을 받습니다</li>
+                            <li>작업 결과를 실시간으로 확인하고 추가 요청을 할 수 있습니다</li>
+                        </ol>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="requirements.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">시스템 요구사항 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

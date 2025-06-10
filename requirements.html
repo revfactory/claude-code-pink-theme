@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시스템 요구사항 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item active">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">시작하기</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="overview.html" class="sidebar-link">개요</a></li>
+                        <li><a href="requirements.html" class="sidebar-link active">시스템 요구사항</a></li>
+                        <li><a href="installation.html" class="sidebar-link">설치 가이드</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">시스템 요구사항</h1>
+                    
+                    <div class="content-section">
+                        <h2>운영체제</h2>
+                        <div class="highlight-box">
+                            <h3>✅ 지원되는 운영체제</h3>
+                            <ul>
+                                <li><strong>macOS:</strong> 10.15 (Catalina) 이상</li>
+                                <li><strong>Linux:</strong> Ubuntu 20.04+, Debian 10+</li>
+                                <li><strong>Windows:</strong> WSL (Windows Subsystem for Linux) 사용</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>하드웨어 요구사항</h2>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>💾 메모리</h3>
+                                <p><strong>최소:</strong> 4GB RAM</p>
+                                <p><strong>권장:</strong> 8GB RAM 이상</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>💿 저장공간</h3>
+                                <p>최소 500MB의 여유 공간 필요</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🌐 네트워크</h3>
+                                <p>안정적인 인터넷 연결 필수</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>소프트웨어 요구사항</h2>
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>📦 Node.js</h3>
+                                <p><strong>버전:</strong> 18.0 이상 (필수)</p>
+                                <p>Node.js가 설치되어 있지 않다면 <a href="https://nodejs.org">nodejs.org</a>에서 다운로드하세요.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🌿 Git (선택사항)</h3>
+                                <p><strong>버전:</strong> 2.23 이상</p>
+                                <p>Git 관련 기능을 사용하려면 설치가 필요합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🔍 ripgrep (선택사항)</h3>
+                                <p>빠른 검색 기능을 위해 설치를 권장합니다.</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3>🛠️ GitHub/GitLab CLI (선택사항)</h3>
+                                <p>PR 생성 등 고급 Git 기능을 사용하려면 설치가 필요합니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>지역 제한</h2>
+                        <div class="highlight-box">
+                            <h3>🌍 사용 가능 지역</h3>
+                            <p>Claude Code는 Anthropic API가 지원되는 국가에서만 사용할 수 있습니다. 자세한 지역 목록은 <a href="#">공식 문서</a>를 참조하세요.</p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>버전 확인 방법</h2>
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># Node.js 버전 확인</span>
+<span class="code-command">node --version</span>
+<span class="code-output">v18.17.0</span>
+
+<span class="code-comment"># Git 버전 확인</span>
+<span class="code-command">git --version</span>
+<span class="code-output">git version 2.39.0</span>
+
+<span class="code-comment"># npm 버전 확인</span>
+<span class="code-command">npm --version</span>
+<span class="code-output">9.6.7</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>문제 해결</h2>
+                        <p>시스템 요구사항과 관련된 문제가 발생하면:</p>
+                        <ol class="steps-list">
+                            <li>모든 필수 소프트웨어가 올바른 버전으로 설치되어 있는지 확인하세요</li>
+                            <li>운영체제가 지원되는 버전인지 확인하세요</li>
+                            <li>인터넷 연결이 안정적인지 확인하세요</li>
+                            <li>문제가 지속되면 <a href="troubleshooting.html">문제 해결 가이드</a>를 참조하세요</li>
+                        </ol>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="installation.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">설치 가이드 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모니터링 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item active">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">팀 & 기업</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="team-setup.html" class="sidebar-link">팀 설정</a></li>
+                        <li><a href="cost-management.html" class="sidebar-link">비용 관리</a></li>
+                        <li><a href="monitoring.html" class="sidebar-link active">모니터링</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">모니터링</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code의 사용 현황, 성능, 에러를 실시간으로 모니터링하여 안정적인 서비스 운영을 보장합니다. 다양한 메트릭과 알림을 통해 문제를 사전에 감지하고 대응할 수 있습니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>대시보드 개요</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>📊 주요 메트릭</h3>
+                            <ul>
+                                <li><strong>API 요청 수</strong>: 시간대별, 사용자별 요청 통계</li>
+                                <li><strong>응답 시간</strong>: 평균 및 P95 레이턴시</li>
+                                <li><strong>에러율</strong>: 에러 유형별 분류 및 추세</li>
+                                <li><strong>토큰 사용량</strong>: 입력/출력 토큰 소비 현황</li>
+                                <li><strong>활성 사용자</strong>: 일일/월간 활성 사용자 수</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>실시간 모니터링</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>CLI 모니터링 명령어</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 실시간 상태 확인</span>
+<span class="code-command">claude monitor --live</span>
+
+<span class="code-comment"># 최근 1시간 통계</span>
+<span class="code-command">claude stats --period 1h</span>
+
+<span class="code-comment"># 에러 로그 확인</span>
+<span class="code-command">claude logs --level error --tail 50</span>
+
+<span class="code-comment"># 성능 메트릭</span>
+<span class="code-command">claude metrics --type performance</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>웹 대시보드</h3>
+                                <p>직관적인 웹 인터페이스를 통한 모니터링:</p>
+                                <ul>
+                                    <li>실시간 차트 및 그래프</li>
+                                    <li>커스터마이징 가능한 대시보드</li>
+                                    <li>드릴다운 분석 기능</li>
+                                    <li>데이터 내보내기 지원</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>로그 관리</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"logging"</span>: {
+    <span class="code-key">"level"</span>: <span class="code-string">"info"</span>,
+    <span class="code-key">"outputs"</span>: [
+      {
+        <span class="code-key">"type"</span>: <span class="code-string">"file"</span>,
+        <span class="code-key">"path"</span>: <span class="code-string">/var/log/claude-code/"</span>,
+        <span class="code-key">"rotation"</span>: {
+          <span class="code-key">"maxSize"</span>: <span class="code-string">"100MB"</span>,
+          <span class="code-key">"maxFiles"</span>: 10,
+          <span class="code-key">"compress"</span>: <span class="code-boolean">true</span>
+        }
+      },
+      {
+        <span class="code-key">"type"</span>: <span class="code-string">"syslog"</span>,
+        <span class="code-key">"facility"</span>: <span class="code-string">"local0"</span>
+      },
+      {
+        <span class="code-key">"type"</span>: <span class="code-string">"elasticsearch"</span>,
+        <span class="code-key">"endpoint"</span>: <span class="code-string">"https://logs.company.com"</span>,
+        <span class="code-key">"index"</span>: <span class="code-string">"claude-code-logs"</span>
+      }
+    ],
+    <span class="code-key">"structuredLogging"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"includeContext"</span>: <span class="code-boolean">true</span>
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>📝 로그 레벨</h3>
+                            <ul>
+                                <li><strong>DEBUG</strong>: 상세한 디버깅 정보</li>
+                                <li><strong>INFO</strong>: 일반적인 정보성 메시지</li>
+                                <li><strong>WARN</strong>: 잠재적 문제 경고</li>
+                                <li><strong>ERROR</strong>: 에러 발생 기록</li>
+                                <li><strong>CRITICAL</strong>: 심각한 오류</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>성능 모니터링</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>응답 시간 추적</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 응답 시간 통계</span>
+<span class="code-command">claude perf stats --metric latency</span>
+
+<span class="code-comment"># 느린 요청 분석</span>
+<span class="code-command">claude perf slow-queries --threshold 5s --limit 20</span>
+
+<span class="code-comment"># 병목 현상 진단</span>
+<span class="code-command">claude perf bottlenecks --analyze</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>리소스 사용률</h3>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>메트릭</th>
+                                            <th>설명</th>
+                                            <th>임계값</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>API 레이턴시</td>
+                                            <td>평균 응답 시간</td>
+                                            <td>&lt; 2초</td>
+                                        </tr>
+                                        <tr>
+                                            <td>에러율</td>
+                                            <td>실패한 요청 비율</td>
+                                            <td>&lt; 1%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>토큰 효율성</td>
+                                            <td>요청당 평균 토큰</td>
+                                            <td>모니터링만</td>
+                                        </tr>
+                                        <tr>
+                                            <td>동시 접속</td>
+                                            <td>활성 세션 수</td>
+                                            <td>계획별 상이</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>알림 설정</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"alerts"</span>: {
+    <span class="code-key">"rules"</span>: [
+      {
+        <span class="code-key">"name"</span>: <span class="code-string">"high_error_rate"</span>,
+        <span class="code-key">"condition"</span>: <span class="code-string">"error_rate > 5%"</span>,
+        <span class="code-key">"duration"</span>: <span class="code-string">"5m"</span>,
+        <span class="code-key">"severity"</span>: <span class="code-string">"critical"</span>,
+        <span class="code-key">"actions"</span>: [<span class="code-string">"email"</span>, <span class="code-string">"slack"</span>, <span class="code-string">"pagerduty"</span>]
+      },
+      {
+        <span class="code-key">"name"</span>: <span class="code-string">"slow_response"</span>,
+        <span class="code-key">"condition"</span>: <span class="code-string">"p95_latency > 5s"</span>,
+        <span class="code-key">"duration"</span>: <span class="code-string">"10m"</span>,
+        <span class="code-key">"severity"</span>: <span class="code-string">"warning"</span>,
+        <span class="code-key">"actions"</span>: [<span class="code-string">"slack"</span>]
+      },
+      {
+        <span class="code-key">"name"</span>: <span class="code-string">"quota_exceeded"</span>,
+        <span class="code-key">"condition"</span>: <span class="code-string">"daily_tokens > quota * 0.9"</span>,
+        <span class="code-key">"severity"</span>: <span class="code-string">"warning"</span>,
+        <span class="code-key">"actions"</span>: [<span class="code-string">"email"</span>]
+      }
+    ],
+    <span class="code-key">"channels"</span>: {
+      <span class="code-key">"email"</span>: {
+        <span class="code-key">"recipients"</span>: [<span class="code-string">"ops@company.com"</span>]
+      },
+      <span class="code-key">"slack"</span>: {
+        <span class="code-key">"webhook"</span>: <span class="code-string">"https://hooks.slack.com/..."</span>,
+        <span class="code-key">"channel"</span>: <span class="code-string">"#claude-alerts"</span>
+      }
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>사용자 활동 추적</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>활동 보고서</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 사용자별 활동 요약</span>
+<span class="code-command">claude report user-activity --period "last-30-days"</span>
+
+<span class="code-comment"># 가장 활발한 사용자</span>
+<span class="code-command">claude report top-users --metric requests --limit 10</span>
+
+<span class="code-comment"># 사용 패턴 분석</span>
+<span class="code-command">claude analyze usage-patterns --group-by hour-of-day</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>감사 추적</h3>
+                                <p>모든 중요 활동을 추적하고 기록:</p>
+                                <ul>
+                                    <li>파일 수정 내역</li>
+                                    <li>실행된 명령어</li>
+                                    <li>API 호출 세부사항</li>
+                                    <li>설정 변경 이력</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>통합 모니터링</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>Prometheus 통합</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># prometheus.yml</span>
+<span class="code-key">scrape_configs</span>:
+  - <span class="code-key">job_name</span>: <span class="code-string">'claude-code'</span>
+    <span class="code-key">static_configs</span>:
+      - <span class="code-key">targets</span>: [<span class="code-string">'localhost:9090'</span>]
+    <span class="code-key">metrics_path</span>: <span class="code-string">'/metrics'</span>
+    <span class="code-key">scrape_interval</span>: <span class="code-string">15s</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Grafana 대시보드</h3>
+                                <p>사전 구성된 Grafana 대시보드 제공:</p>
+                                <ul>
+                                    <li>실시간 메트릭 시각화</li>
+                                    <li>커스텀 차트 생성</li>
+                                    <li>알림 규칙 설정</li>
+                                    <li>팀 대시보드 공유</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>APM 도구 연동</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"apm"</span>: {
+    <span class="code-key">"provider"</span>: <span class="code-string">"datadog"</span>,
+    <span class="code-key">"apiKey"</span>: <span class="code-string">"${DD_API_KEY}"</span>,
+    <span class="code-key">"service"</span>: <span class="code-string">"claude-code"</span>,
+    <span class="code-key">"environment"</span>: <span class="code-string">"production"</span>,
+    <span class="code-key">"tags"</span>: [
+      <span class="code-string">"team:engineering"</span>,
+      <span class="code-string">"version:1.2.3"</span>
+    ]
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>인시던트 대응</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>🚨 인시던트 관리 프로세스</h3>
+                            <ol class="steps-list">
+                                <li><strong>감지</strong>: 자동 알림 또는 사용자 보고</li>
+                                <li><strong>분류</strong>: 심각도 및 영향 범위 평가</li>
+                                <li><strong>대응</strong>: 즉각적인 조치 수행</li>
+                                <li><strong>해결</strong>: 근본 원인 해결</li>
+                                <li><strong>사후 분석</strong>: 개선 사항 도출</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>런북 예제</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment"># 높은 에러율 대응 런북</span>
+
+<span class="code-comment"># 1. 현재 상태 확인</span>
+<span class="code-command">claude status --detailed</span>
+<span class="code-command">claude logs --level error --last 10m</span>
+
+<span class="code-comment"># 2. 일시적 완화</span>
+<span class="code-command">claude config set rate-limit 50</span>
+<span class="code-command">claude config set retry-policy aggressive</span>
+
+<span class="code-comment"># 3. 근본 원인 분석</span>
+<span class="code-command">claude analyze errors --group-by type</span>
+<span class="code-command">claude trace --request-id $ERROR_ID</span>
+
+<span class="code-comment"># 4. 복구 확인</span>
+<span class="code-command">claude monitor --metric error-rate --watch</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>보고서 생성</h2>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># 월간 사용 보고서</span>
+<span class="code-command">claude report monthly --format pdf --output report-2024-01.pdf</span>
+
+<span class="code-comment"># 팀별 분석 보고서</span>
+<span class="code-command">claude report team-usage --group-by department --export csv</span>
+
+<span class="code-comment"># SLA 준수 보고서</span>
+<span class="code-command">claude report sla --period "Q1-2024" --include-incidents</span>
+
+<span class="code-comment"># 자동 보고서 스케줄링</span>
+<span class="code-command">claude schedule report --type weekly --email team@company.com</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>최적화 권장사항</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 모니터링 모범 사례</h3>
+                            <ul>
+                                <li><strong>기준선 설정</strong>: 정상 상태의 메트릭 기준선 정의</li>
+                                <li><strong>점진적 알림</strong>: 경고부터 시작하여 단계적 에스컬레이션</li>
+                                <li><strong>노이즈 감소</strong>: 의미 있는 알림만 설정</li>
+                                <li><strong>정기 검토</strong>: 알림 규칙 및 임계값 주기적 조정</li>
+                                <li><strong>자동화</strong>: 반복적인 대응 작업 자동화</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="tutorials.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">튜토리얼 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

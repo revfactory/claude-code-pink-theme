@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>튜토리얼 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item active">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">리소스</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="tutorials.html" class="sidebar-link active">튜토리얼</a></li>
+                        <li><a href="troubleshooting.html" class="sidebar-link">문제 해결</a></li>
+                        <li><a href="reference.html" class="sidebar-link">참조 문서</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">튜토리얼</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code를 활용한 실전 프로젝트와 단계별 가이드를 통해 효과적인 사용법을 익혀보세요. 초급부터 고급까지 다양한 수준의 튜토리얼을 제공합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>초급 튜토리얼</h2>
+                        
+                        <div class="tutorial-list">
+                            <div class="tutorial-item">
+                                <h3>🎯 첫 번째 프로젝트 시작하기</h3>
+                                <p>Claude Code로 간단한 웹 애플리케이션을 만들어보는 입문 튜토리얼입니다.</p>
+                                
+                                <div class="example-box">
+                                    <h4>단계 1: 프로젝트 초기화</h4>
+                                    <div class="code-example">
+                                        <pre><code><span class="code-comment"># 새 프로젝트 디렉토리 생성</span>
+<span class="code-command">mkdir my-first-app && cd my-first-app</span>
+
+<span class="code-comment"># Claude Code 시작</span>
+<span class="code-command">claude</span>
+
+<span class="code-comment"># 프로젝트 구조 생성 요청</span>
+<span class="code-output">> Node.js Express 앱의 기본 구조를 만들어줘</span></code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <h4>단계 2: 기본 기능 구현</h4>
+                                    <div class="code-example">
+                                        <pre><code><span class="code-output">> 사용자 인증 기능을 추가해줘</span>
+<span class="code-output">> JWT를 사용한 토큰 기반 인증으로 구현해줘</span>
+<span class="code-output">> 로그인과 회원가입 API 엔드포인트를 만들어줘</span></code></pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <h4>단계 3: 테스트 작성</h4>
+                                    <div class="code-example">
+                                        <pre><code><span class="code-output">> 방금 만든 인증 API에 대한 테스트를 작성해줘</span>
+<span class="code-output">> Jest를 사용하고 모든 엔드포인트를 테스트해줘</span>
+<span class="code-output">> 테스트를 실행하고 결과를 보여줘</span></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorial-item">
+                                <h3>📝 코드 리팩토링 기초</h3>
+                                <p>기존 코드를 개선하고 최적화하는 방법을 배웁니다.</p>
+                                
+                                <ol class="steps-list">
+                                    <li>코드 분석 요청하기</li>
+                                    <li>개선점 파악하기</li>
+                                    <li>단계별 리팩토링 진행</li>
+                                    <li>테스트로 검증하기</li>
+                                </ol>
+                                
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 이 프로젝트의 코드 품질을 분석해줘</span>
+<span class="code-output">> 중복된 코드를 찾아서 리팩토링해줘</span>
+<span class="code-output">> 함수를 더 작고 재사용 가능하게 분리해줘</span>
+<span class="code-output">> 변경 후에도 모든 테스트가 통과하는지 확인해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>중급 튜토리얼</h2>
+                        
+                        <div class="tutorial-list">
+                            <div class="tutorial-item">
+                                <h3>🔧 마이크로서비스 구축하기</h3>
+                                <p>Claude Code를 활용하여 마이크로서비스 아키텍처를 설계하고 구현합니다.</p>
+                                
+                                <div class="highlight-box">
+                                    <h4>학습 목표</h4>
+                                    <ul>
+                                        <li>서비스 분리 전략 수립</li>
+                                        <li>API 게이트웨이 구현</li>
+                                        <li>서비스 간 통신 설정</li>
+                                        <li>분산 트랜잭션 처리</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 마이크로서비스 프로젝트 구조</span>
+microservices/
+├── api-gateway/
+├── user-service/
+├── product-service/
+├── order-service/
+└── docker-compose.yml
+
+<span class="code-output">> 각 서비스의 기본 구조를 생성해줘</span>
+<span class="code-output">> Docker Compose로 전체 시스템을 구성해줘</span>
+<span class="code-output">> 서비스 간 통신을 위한 메시지 큐를 설정해줘</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorial-item">
+                                <h3>🚀 CI/CD 파이프라인 구축</h3>
+                                <p>GitHub Actions와 Claude Code를 연동하여 자동화된 배포 파이프라인을 만듭니다.</p>
+                                
+                                <div class="example-box">
+                                    <h4>파이프라인 단계</h4>
+                                    <ol class="steps-list">
+                                        <li>코드 품질 검사</li>
+                                        <li>자동화된 테스트</li>
+                                        <li>보안 스캔</li>
+                                        <li>컨테이너 빌드</li>
+                                        <li>스테이징 배포</li>
+                                        <li>프로덕션 배포</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> GitHub Actions 워크플로우를 만들어줘</span>
+<span class="code-output">> 각 PR마다 Claude Code가 자동으로 리뷰하도록 설정해줘</span>
+<span class="code-output">> 테스트 실패 시 자동으로 수정을 시도하는 단계를 추가해줘</span>
+<span class="code-output">> 배포 전 승인 프로세스를 구현해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>고급 튜토리얼</h2>
+                        
+                        <div class="tutorial-list">
+                            <div class="tutorial-item">
+                                <h3>🧠 AI 기반 코드 생성 시스템</h3>
+                                <p>Claude Code를 활용하여 도메인 특화 코드 생성기를 만드는 고급 튜토리얼입니다.</p>
+                                
+                                <div class="example-box">
+                                    <h4>프로젝트 개요</h4>
+                                    <p>비즈니스 요구사항을 입력받아 자동으로 CRUD 애플리케이션을 생성하는 시스템을 구축합니다.</p>
+                                    
+                                    <div class="code-example">
+                                        <pre><code><span class="code-comment"># 도메인 정의 파일</span>
+{
+  <span class="code-key">"entities"</span>: {
+    <span class="code-key">"Product"</span>: {
+      <span class="code-key">"fields"</span>: {
+        <span class="code-key">"name"</span>: <span class="code-string">"string"</span>,
+        <span class="code-key">"price"</span>: <span class="code-string">"decimal"</span>,
+        <span class="code-key">"category"</span>: <span class="code-string">"Category"</span>
+      }
+    }
+  }
+}
+
+<span class="code-output">> 이 도메인 정의를 기반으로 전체 애플리케이션을 생성해줘</span>
+<span class="code-output">> 프론트엔드는 React, 백엔드는 NestJS로 만들어줘</span>
+<span class="code-output">> GraphQL API와 타입 정의를 자동 생성해줘</span></code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorial-item">
+                                <h3>🔍 대규모 코드베이스 분석</h3>
+                                <p>수백만 줄의 코드를 효율적으로 분석하고 리팩토링하는 전략을 학습합니다.</p>
+                                
+                                <div class="highlight-box">
+                                    <h4>분석 전략</h4>
+                                    <ul>
+                                        <li>점진적 탐색 기법</li>
+                                        <li>의존성 그래프 생성</li>
+                                        <li>핫스팟 식별</li>
+                                        <li>기술 부채 매핑</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> 전체 코드베이스의 아키텍처를 분석해줘</span>
+<span class="code-output">> 가장 복잡한 모듈 10개를 찾아줘</span>
+<span class="code-output">> 순환 의존성이 있는 부분을 식별해줘</span>
+<span class="code-output">> 단계별 리팩토링 계획을 수립해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>실전 프로젝트</h2>
+                        
+                        <div class="project-list">
+                            <div class="project-item">
+                                <h3>🛒 이커머스 플랫폼 구축</h3>
+                                <p>완전한 이커머스 솔루션을 Claude Code와 함께 개발합니다.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>구현할 기능</h4>
+                                    <ul>
+                                        <li>상품 카탈로그 관리</li>
+                                        <li>장바구니 및 결제 시스템</li>
+                                        <li>주문 추적 및 배송 관리</li>
+                                        <li>실시간 재고 관리</li>
+                                        <li>고객 리뷰 및 평점</li>
+                                        <li>관리자 대시보드</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="highlight-box">
+                                    <h4>예상 소요 시간: 40시간</h4>
+                                    <p>Claude Code를 활용하면 전통적인 개발 방식 대비 70% 시간 단축</p>
+                                </div>
+                            </div>
+                            
+                            <div class="project-item">
+                                <h3>📊 실시간 분석 대시보드</h3>
+                                <p>대용량 데이터를 처리하고 시각화하는 분석 플랫폼을 구축합니다.</p>
+                                
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 프로젝트 시작</span>
+<span class="code-output">> 실시간 데이터 파이프라인을 설계해줘</span>
+<span class="code-output">> Kafka를 사용한 스트리밍 처리를 구현해줘</span>
+<span class="code-output">> React와 D3.js로 대시보드를 만들어줘</span>
+<span class="code-output">> WebSocket으로 실시간 업데이트를 구현해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>비디오 튜토리얼</h2>
+                        
+                        <div class="video-list">
+                            <div class="video-item">
+                                <h3>🎥 Claude Code 입문 (30분)</h3>
+                                <p>설치부터 첫 프로젝트까지 단계별로 따라하는 영상 가이드</p>
+                            </div>
+                            
+                            <div class="video-item">
+                                <h3>🎥 효율적인 프롬프트 작성법 (20분)</h3>
+                                <p>Claude Code와 효과적으로 소통하는 방법을 배웁니다</p>
+                            </div>
+                            
+                            <div class="video-item">
+                                <h3>🎥 팀 협업 워크플로우 (45분)</h3>
+                                <p>팀 환경에서 Claude Code를 활용하는 모범 사례</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>연습 문제</h2>
+                        
+                        <div class="exercise-list">
+                            <div class="exercise-item">
+                                <h3>🏋️ 연습 1: API 설계</h3>
+                                <p>RESTful API를 설계하고 OpenAPI 스펙을 생성하세요.</p>
+                                <details>
+                                    <summary>힌트 보기</summary>
+                                    <div class="code-example">
+                                        <pre><code><span class="code-output">> 도서 관리 시스템을 위한 RESTful API를 설계해줘</span>
+<span class="code-output">> OpenAPI 3.0 스펙으로 문서화해줘</span></code></pre>
+                                    </div>
+                                </details>
+                            </div>
+                            
+                            <div class="exercise-item">
+                                <h3>🏋️ 연습 2: 성능 최적화</h3>
+                                <p>느린 데이터베이스 쿼리를 찾아 최적화하세요.</p>
+                                <details>
+                                    <summary>힌트 보기</summary>
+                                    <div class="code-example">
+                                        <pre><code><span class="code-output">> N+1 쿼리 문제를 찾아줘</span>
+<span class="code-output">> 인덱스를 추가해서 쿼리 성능을 개선해줘</span></code></pre>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>커뮤니티 기여 튜토리얼</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>📢 튜토리얼 제출하기</h3>
+                            <p>자신만의 Claude Code 활용 사례를 공유해주세요!</p>
+                            <ul>
+                                <li>GitHub에 PR 제출</li>
+                                <li>포럼에 게시</li>
+                                <li>블로그 포스트 작성</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="troubleshooting.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">문제 해결 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

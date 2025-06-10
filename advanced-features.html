@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고급 기능 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item active">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">사용 가이드</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="cli-usage.html" class="sidebar-link">CLI 사용법</a></li>
+                        <li><a href="common-tasks.html" class="sidebar-link">일반 작업</a></li>
+                        <li><a href="advanced-features.html" class="sidebar-link active">고급 기능</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">고급 기능</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code의 고급 기능을 활용하여 더욱 강력하고 효율적인 개발 환경을 구축할 수 있습니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>CI/CD 및 인프라 자동화</h2>
+                        <p>Claude Code는 헤드리스 실행을 위한 비대화형 모드를 제공합니다. 이는 스크립트, 파이프라인, GitHub Actions와 같은 비대화형 컨텍스트에서 특히 유용합니다.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>🚀 비대화형 모드 사용</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment"># 환경 변수로 API 키 설정</span>
+<span class="code-command">export ANTHROPIC_API_KEY=sk_your_api_key</span>
+
+<span class="code-comment"># README 업데이트</span>
+<span class="code-command">claude -p "README를 최신 변경사항으로 업데이트해줘" \
+  --allowedTools "Bash(git diff:*)" "Bash(git log:*)" Write</span>
+
+<span class="code-comment"># 테스트 실행 및 수정</span>
+<span class="code-command">claude -p "테스트를 실행하고 실패를 수정해줘" \
+  --allowedTools Read Write "Bash(npm test:*)"</span></code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>GitHub Actions 통합</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-keyword">name</span>: <span class="code-string">AI Code Review</span>
+<span class="code-keyword">on</span>: [<span class="code-string">pull_request</span>]
+
+<span class="code-keyword">jobs</span>:
+  <span class="code-keyword">review</span>:
+    <span class="code-keyword">runs-on</span>: <span class="code-string">ubuntu-latest</span>
+    <span class="code-keyword">steps</span>:
+      - <span class="code-keyword">uses</span>: <span class="code-string">actions/checkout@v2</span>
+      - <span class="code-keyword">name</span>: <span class="code-string">Run Claude Code Review</span>
+        <span class="code-keyword">run</span>: |
+          npx @anthropic-ai/claude-code -p \
+            "코드를 리뷰하고 개선사항을 제안해줘" \
+            --allowedTools Read Grep
+        <span class="code-keyword">env</span>:
+          <span class="code-keyword">ANTHROPIC_API_KEY</span>: ${{ secrets.ANTHROPIC_API_KEY }}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>도구 세밀 제어</h2>
+                        <p>Claude Code가 사용할 수 있는 도구를 정밀하게 제어하여 보안을 강화하고 작업을 최적화할 수 있습니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>패턴 기반 도구 제한</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 특정 Git 명령만 허용</span>
+<span class="code-command">claude --allowedTools "Bash(git status:*)" "Bash(git diff:*)" "Bash(git log:*)"</span>
+
+<span class="code-comment"># 특정 npm 스크립트만 실행 허용</span>
+<span class="code-command">claude --allowedTools "Bash(npm run test:*)" "Bash(npm run lint:*)"</span>
+
+<span class="code-comment"># 읽기 전용 모드</span>
+<span class="code-command">claude --allowedTools Read Grep --disallowedTools Write Bash</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>복합 도구 정책</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 개발 환경용 정책</span>
+<span class="code-command">claude --allowedTools Read Write Grep \
+  "Bash(npm:*)" "Bash(yarn:*)" "Bash(git:*)" \
+  --disallowedTools "Bash(rm:*)" "Bash(sudo:*)"</span>
+
+<span class="code-comment"># 프로덕션 환경용 정책</span>
+<span class="code-command">claude --allowedTools Read Grep \
+  "Bash(kubectl get:*)" "Bash(docker logs:*)" \
+  --disallowedTools Write "Bash(kubectl delete:*)"</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>웹 검색 통합</h2>
+                        <p>Claude Code는 최신 문서와 정보를 검색하여 개발에 활용할 수 있습니다.</p>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-output">> React 19의 새로운 기능을 검색해서 설명해줘</span>
+<span class="code-output">> 이 에러 메시지를 검색해서 해결 방법을 찾아줘</span>
+<span class="code-output">> AWS Lambda의 최신 모범 사례를 검색해줘</span></code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>🌐 웹 검색 활용 팁</h3>
+                            <ul>
+                                <li>최신 라이브러리 버전의 변경사항 확인</li>
+                                <li>에러 메시지 해결 방법 검색</li>
+                                <li>새로운 기술의 모범 사례 학습</li>
+                                <li>보안 취약점 정보 확인</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>맞춤형 워크플로우</h2>
+                        <p>반복적인 작업을 자동화하고 팀의 워크플로우에 맞게 Claude Code를 구성할 수 있습니다.</p>
+                        
+                        <div class="example-box">
+                            <h3>예제: 코드 리뷰 자동화</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment">#!/bin/bash</span>
+<span class="code-comment"># code-review.sh</span>
+
+<span class="code-keyword">echo</span> <span class="code-string">"🔍 코드 리뷰 시작..."</span>
+
+<span class="code-comment"># 코드 스타일 검사</span>
+<span class="code-command">claude -p "코드 스타일 가이드라인을 위반하는 부분을 찾아줘" \
+  --allowedTools Read Grep</span>
+
+<span class="code-comment"># 보안 취약점 검사</span>
+<span class="code-command">claude -p "보안 취약점을 검사하고 보고서를 작성해줘" \
+  --allowedTools Read Grep Write</span>
+
+<span class="code-comment"># 테스트 커버리지 확인</span>
+<span class="code-command">claude -p "테스트 커버리지를 분석하고 누락된 테스트를 제안해줘" \
+  --allowedTools Read "Bash(npm test -- --coverage:*)"</span></code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="example-box">
+                            <h3>예제: 배포 준비 자동화</h3>
+                            <div class="code-example">
+                                <pre><code><span class="code-comment">#!/bin/bash</span>
+<span class="code-comment"># prepare-release.sh</span>
+
+<span class="code-keyword">VERSION</span>=<span class="code-string">"$1"</span>
+
+<span class="code-comment"># 버전 업데이트</span>
+<span class="code-command">claude -p "package.json의 버전을 $VERSION으로 업데이트해줘" \
+  --allowedTools Read Write</span>
+
+<span class="code-comment"># CHANGELOG 생성</span>
+<span class="code-command">claude -p "최근 커밋을 기반으로 CHANGELOG를 업데이트해줘" \
+  --allowedTools "Bash(git log:*)" Read Write</span>
+
+<span class="code-comment"># 문서 업데이트</span>
+<span class="code-command">claude -p "API 문서를 최신 코드에 맞게 업데이트해줘" \
+  --allowedTools Read Write Grep</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>메모리 및 컨텍스트 최적화</h2>
+                        <p>대규모 프로젝트에서 효율적으로 작업하기 위한 메모리 관리 전략입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>컨텍스트 윈도우 관리</h3>
+                                <ul>
+                                    <li>필요한 파일만 선택적으로 포함</li>
+                                    <li>대화 히스토리 적절히 관리</li>
+                                    <li>작업별로 세션 분리</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>효율적인 파일 탐색</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-output">> .gitignore에 있는 파일은 제외하고 분석해줘</span>
+<span class="code-output">> src 디렉토리의 TypeScript 파일만 검토해줘</span>
+<span class="code-output">> 최근 7일 이내 수정된 파일만 확인해줘</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>엔터프라이즈 통합</h2>
+                        <p>기업 환경에서 Claude Code를 안전하게 사용하기 위한 고급 통합 옵션입니다.</p>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>Amazon Bedrock 통합</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># AWS 자격 증명 설정</span>
+<span class="code-command">export AWS_PROFILE=your-profile</span>
+
+<span class="code-comment"># Bedrock을 통해 Claude Code 실행</span>
+<span class="code-command">claude --provider bedrock --region us-east-1</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>Google Vertex AI 통합</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># Google Cloud 인증</span>
+<span class="code-command">gcloud auth application-default login</span>
+
+<span class="code-comment"># Vertex AI를 통해 Claude Code 실행</span>
+<span class="code-command">claude --provider vertex --project your-project-id</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="ide-integration.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">IDE 통합 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

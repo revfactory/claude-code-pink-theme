@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비용 관리 - Claude Code</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (동일한 헤더 구조) -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🤖</span>
+                    <span class="logo-text">Claude Code</span>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">시작하기</a>
+                            <div class="dropdown-menu">
+                                <a href="overview.html" class="dropdown-item">개요</a>
+                                <a href="requirements.html" class="dropdown-item">시스템 요구사항</a>
+                                <a href="installation.html" class="dropdown-item">설치 가이드</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">사용 가이드</a>
+                            <div class="dropdown-menu">
+                                <a href="cli-usage.html" class="dropdown-item">CLI 사용법</a>
+                                <a href="common-tasks.html" class="dropdown-item">일반 작업</a>
+                                <a href="advanced-features.html" class="dropdown-item">고급 기능</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">통합</a>
+                            <div class="dropdown-menu">
+                                <a href="ide-integration.html" class="dropdown-item">IDE 통합</a>
+                                <a href="github-actions.html" class="dropdown-item">GitHub Actions</a>
+                                <a href="sdk.html" class="dropdown-item">SDK</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">설정</a>
+                            <div class="dropdown-menu">
+                                <a href="memory-management.html" class="dropdown-item">메모리 관리</a>
+                                <a href="settings-file.html" class="dropdown-item">설정 파일</a>
+                                <a href="security.html" class="dropdown-item">보안</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link active">팀 & 기업</a>
+                            <div class="dropdown-menu">
+                                <a href="team-setup.html" class="dropdown-item">팀 설정</a>
+                                <a href="cost-management.html" class="dropdown-item active">비용 관리</a>
+                                <a href="monitoring.html" class="dropdown-item">모니터링</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link">리소스</a>
+                            <div class="dropdown-menu">
+                                <a href="tutorials.html" class="dropdown-item">튜토리얼</a>
+                                <a href="troubleshooting.html" class="dropdown-item">문제 해결</a>
+                                <a href="reference.html" class="dropdown-item">참조 문서</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn">🔍</button>
+                    <a href="#" class="github-link">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="content-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3 class="sidebar-title">팀 & 기업</h3>
+                    <ul class="sidebar-nav">
+                        <li><a href="team-setup.html" class="sidebar-link">팀 설정</a></li>
+                        <li><a href="cost-management.html" class="sidebar-link active">비용 관리</a></li>
+                        <li><a href="monitoring.html" class="sidebar-link">모니터링</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="main-content">
+                    <h1 class="page-title">비용 관리</h1>
+                    
+                    <div class="content-section">
+                        <p>Claude Code의 비용을 효과적으로 관리하고 최적화하는 방법을 안내합니다. 사용량 추적, 예산 설정, 비용 최적화 전략을 통해 효율적인 운영이 가능합니다.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>가격 모델 이해하기</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💰 Claude Code 가격 구조</h3>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>모델</th>
+                                        <th>입력 (100만 토큰당)</th>
+                                        <th>출력 (100만 토큰당)</th>
+                                        <th>특징</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Claude 3 Opus</strong></td>
+                                        <td>$15</td>
+                                        <td>$75</td>
+                                        <td>최고 성능, 복잡한 작업</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Claude 3 Sonnet</strong></td>
+                                        <td>$3</td>
+                                        <td>$15</td>
+                                        <td>균형잡힌 성능과 비용</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Claude 3 Haiku</strong></td>
+                                        <td>$0.25</td>
+                                        <td>$1.25</td>
+                                        <td>빠른 응답, 간단한 작업</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p><em>* 가격은 변경될 수 있습니다. 최신 정보는 공식 웹사이트를 확인하세요.</em></p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>사용량 모니터링</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>실시간 사용량 추적</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 현재 세션 사용량 확인</span>
+<span class="code-output">> 현재 토큰 사용량을 보여줘</span>
+
+<span class="code-comment"># CLI에서 사용량 확인</span>
+<span class="code-command">claude usage --current</span>
+
+<span class="code-comment"># 일별 사용량 보고서</span>
+<span class="code-command">claude usage --report daily</span>
+
+<span class="code-comment"># 월별 사용량 요약</span>
+<span class="code-command">claude usage --report monthly --format json</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>사용량 대시보드</h3>
+                                <p>웹 대시보드에서 상세한 사용량 분석이 가능합니다:</p>
+                                <ul>
+                                    <li>시간대별 사용 패턴</li>
+                                    <li>프로젝트별 사용량 분석</li>
+                                    <li>사용자별 통계</li>
+                                    <li>API 호출 빈도</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>예산 설정 및 알림</h2>
+                        
+                        <div class="code-example">
+                            <pre><code>{
+  <span class="code-key">"costManagement"</span>: {
+    <span class="code-key">"monthlyBudget"</span>: 1000,
+    <span class="code-key">"alerts"</span>: [
+      {
+        <span class="code-key">"threshold"</span>: 50,
+        <span class="code-key">"action"</span>: <span class="code-string">"email"</span>,
+        <span class="code-key">"recipients"</span>: [<span class="code-string">"team-lead@company.com"</span>]
+      },
+      {
+        <span class="code-key">"threshold"</span>: 80,
+        <span class="code-key">"action"</span>: <span class="code-string">"slack"</span>,
+        <span class="code-key">"channel"</span>: <span class="code-string">"#dev-alerts"</span>
+      },
+      {
+        <span class="code-key">"threshold"</span>: 95,
+        <span class="code-key">"action"</span>: <span class="code-string">"restrict"</span>,
+        <span class="code-key">"allowedUsers"</span>: [<span class="code-string">"senior-devs"</span>]
+      }
+    ],
+    <span class="code-key">"hardLimit"</span>: 1200,
+    <span class="code-key">"resetCycle"</span>: <span class="code-string">"monthly"</span>
+  }
+}</code></pre>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>🔔 알림 유형</h3>
+                            <ul>
+                                <li><strong>이메일 알림</strong>: 예산 임계값 도달 시</li>
+                                <li><strong>Slack/Teams 통합</strong>: 실시간 알림</li>
+                                <li><strong>웹훅</strong>: 커스텀 통합</li>
+                                <li><strong>자동 제한</strong>: 예산 초과 방지</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>비용 최적화 전략</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>1. 모델 선택 최적화</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"modelStrategy"</span>: {
+    <span class="code-key">"default"</span>: <span class="code-string">"claude-3-haiku"</span>,
+    <span class="code-key">"rules"</span>: [
+      {
+        <span class="code-key">"condition"</span>: <span class="code-string">"complex_refactoring"</span>,
+        <span class="code-key">"model"</span>: <span class="code-string">"claude-3-opus"</span>
+      },
+      {
+        <span class="code-key">"condition"</span>: <span class="code-string">"code_review"</span>,
+        <span class="code-key">"model"</span>: <span class="code-string">"claude-3-sonnet"</span>
+      },
+      {
+        <span class="code-key">"condition"</span>: <span class="code-string">"simple_query"</span>,
+        <span class="code-key">"model"</span>: <span class="code-string">"claude-3-haiku"</span>
+      }
+    ]
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>2. 컨텍스트 최적화</h3>
+                                <ul>
+                                    <li>불필요한 파일 제외</li>
+                                    <li>대화 히스토리 정기적 정리</li>
+                                    <li>선택적 파일 로딩</li>
+                                    <li>요약 기능 활용</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>3. 캐싱 활용</h3>
+                                <div class="code-example">
+                                    <pre><code>{
+  <span class="code-key">"caching"</span>: {
+    <span class="code-key">"enabled"</span>: <span class="code-boolean">true</span>,
+    <span class="code-key">"ttl"</span>: 3600,
+    <span class="code-key">"maxSize"</span>: <span class="code-string">"100MB"</span>,
+    <span class="code-key">"cacheCommonQueries"</span>: <span class="code-boolean">true</span>
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>팀별 비용 할당</h2>
+                        
+                        <div class="example-box">
+                            <h3>부서별 비용 추적</h3>
+                            <div class="code-example">
+                                <pre><code>{
+  <span class="code-key">"costAllocation"</span>: {
+    <span class="code-key">"departments"</span>: {
+      <span class="code-key">"engineering"</span>: {
+        <span class="code-key">"budget"</span>: 5000,
+        <span class="code-key">"tags"</span>: [<span class="code-string">"eng-*"</span>]
+      },
+      <span class="code-key">"qa"</span>: {
+        <span class="code-key">"budget"</span>: 2000,
+        <span class="code-key">"tags"</span>: [<span class="code-string">"qa-*"</span>]
+      },
+      <span class="code-key">"devops"</span>: {
+        <span class="code-key">"budget"</span>: 3000,
+        <span class="code-key">"tags"</span>: [<span class="code-string">"ops-*"</span>]
+      }
+    },
+    <span class="code-key">"chargebackEnabled"</span>: <span class="code-boolean">true</span>
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>프로젝트 태깅</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 프로젝트 태그로 실행</span>
+<span class="code-command">claude --project mobile-app --cost-center engineering</span>
+
+<span class="code-comment"># 환경 변수로 태그 설정</span>
+<span class="code-command">export CLAUDE_PROJECT_TAG="web-frontend"</span>
+<span class="code-command">export CLAUDE_COST_CENTER="product-team"</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>비용 분석 및 보고</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>상세 비용 보고서</h3>
+                                <div class="code-example">
+                                    <pre><code><span class="code-comment"># 월별 상세 보고서 생성</span>
+<span class="code-command">claude report cost --period "2024-01" --format pdf</span>
+
+<span class="code-comment"># CSV 형식으로 내보내기</span>
+<span class="code-command">claude report cost --export csv --output costs-jan-2024.csv</span>
+
+<span class="code-comment"># 프로젝트별 분석</span>
+<span class="code-command">claude analyze costs --group-by project --top 10</span></code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>비용 예측</h3>
+                                <p>과거 사용 패턴을 기반으로 향후 비용을 예측:</p>
+                                <ul>
+                                    <li>트렌드 분석</li>
+                                    <li>계절적 변동 고려</li>
+                                    <li>프로젝트 일정 반영</li>
+                                    <li>성장률 예측</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>비용 절감 팁</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>💡 실전 절감 방법</h3>
+                            <ol class="steps-list">
+                                <li><strong>배치 처리</strong>: 유사한 작업을 모아서 처리</li>
+                                <li><strong>오프피크 활용</strong>: 긴급하지 않은 작업은 예약 실행</li>
+                                <li><strong>템플릿 활용</strong>: 반복 작업용 템플릿 생성</li>
+                                <li><strong>로컬 처리</strong>: 가능한 작업은 로컬에서 수행</li>
+                                <li><strong>정기 검토</strong>: 월별 사용 패턴 분석 및 최적화</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>엔터프라이즈 계약</h2>
+                        
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <h3>볼륨 할인</h3>
+                                <p>대량 사용 시 할인 혜택:</p>
+                                <ul>
+                                    <li>연간 약정 할인</li>
+                                    <li>사용량 기반 티어 할인</li>
+                                    <li>커스텀 가격 협상</li>
+                                    <li>전용 지원 포함</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <h3>예약 용량</h3>
+                                <p>사전 구매를 통한 비용 절감:</p>
+                                <ul>
+                                    <li>1년/3년 약정 옵션</li>
+                                    <li>최대 40% 할인</li>
+                                    <li>우선 처리 보장</li>
+                                    <li>SLA 보장</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>자동화된 비용 관리</h2>
+                        
+                        <div class="code-example">
+                            <pre><code><span class="code-comment"># 자동 비용 최적화 스크립트</span>
+<span class="code-keyword">#!/bin/bash</span>
+
+<span class="code-comment"># 일일 비용 확인</span>
+DAILY_COST=$(<span class="code-command">claude usage --today --format json | jq '.total_cost'</span>)
+DAILY_LIMIT=100
+
+<span class="code-keyword">if</span> (( $(echo "$DAILY_COST > $DAILY_LIMIT" | bc -l) )); <span class="code-keyword">then</span>
+    <span class="code-comment"># 비용 초과 시 모델 다운그레이드</span>
+    <span class="code-command">claude config set model claude-3-haiku</span>
+    <span class="code-comment"># 알림 전송</span>
+    <span class="code-command">curl -X POST $SLACK_WEBHOOK -d '{"text":"일일 비용 한도 초과"}'</span>
+<span class="code-keyword">fi</span>
+
+<span class="code-comment"># 주간 보고서 생성</span>
+<span class="code-keyword">if</span> [[ $(date +%u) -eq 1 ]]; <span class="code-keyword">then</span>
+    <span class="code-command">claude report cost --period "last-week" --email team@company.com</span>
+<span class="code-keyword">fi</span></code></pre>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h2>다음 단계</h2>
+                        <div class="next-steps-links">
+                            <a href="monitoring.html" class="next-link">
+                                <span class="next-label">다음</span>
+                                <span class="next-title">모니터링 →</span>
+                            </a>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">제품</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">기능</a></li>
+                        <li><a href="#">가격</a></li>
+                        <li><a href="#">보안</a></li>
+                        <li><a href="#">통합</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">문서</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">시작하기</a></li>
+                        <li><a href="#">API 문서</a></li>
+                        <li><a href="#">튜토리얼</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">커뮤니티</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">포럼</a></li>
+                        <li><a href="#">블로그</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">회사</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">소개</a></li>
+                        <li><a href="#">채용</a></li>
+                        <li><a href="#">문의</a></li>
+                        <li><a href="#">파트너</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anthropic. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">개인정보 보호정책</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">쿠키 정책</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
